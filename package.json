@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://romantic-bhaskara-49db90.netlify.app/",
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
     "@material-ui/core": "^4.11.3",
@@ -52,5 +53,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy":"https://nashatezgamk.herokuapp.com/"
+  "proxy":"https://romantic-bhaskara-49db90.netlify.app/"
 }
