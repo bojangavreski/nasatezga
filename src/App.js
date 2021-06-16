@@ -22,17 +22,17 @@ function App() {
       <Router>
       <div>
       <Navbar/>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/biodiv" component={Biodiv}/>
-      <Route exact path="/avtohtoni" component={Avtohtoni}/>
+      <Route  path="/" component={Home} />
+      <Route  path="/biodiv" component={Biodiv}/>
+      <Route  path="/avtohtoni" component={Avtohtoni}/>
       </div>
         <Container>
-        <Route exact path="/subscription" component={Subscription}/>
-            <Route exact path="/store" component={Store} />
-            <AuthRoute exact path="/login" component={Login1} />
-            <AuthRoute exact path="/register" component={Register1}/>
-            <Route exact path="/products/:pId" component={SingleProduct}/>
-            <Route exact path="/profile/:uId" component={Profile}/>
+        <Route  path="/subscription" component={Subscription}/>
+            <Route  path="/store" component={Store} />
+            <AuthRoute  path="/login" component={Login1} />
+            <AuthRoute  path="/register" component={Register1}/>
+            <Route  path="/products/:pId" component={SingleProduct}/>
+            <Route  path="/profile/:uId" component={Profile}/>
            
         </Container>
       </Router>
