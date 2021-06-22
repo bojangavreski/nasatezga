@@ -1,19 +1,17 @@
-import React,{useContext,useState} from 'react';
+import React,{useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import {AuthContext} from '../context/auth'
-import {useMutation} from '@apollo/react-hooks';
 import {useForm} from '../util/hooks';
-import gql from 'graphql-tag';
 import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import gql from 'graphql-tag';
+import {useLazyQuery} from '@apollo/react-hooks';
 
 function Copyright() {
   return (
@@ -50,28 +48,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn(props){
+export default function ForgotPassword(props){
   const classes = useStyles();
-  const context = useContext(AuthContext);
-    const [errors,setErrors] = useState({})
-    const {onChange,onSubmit,values} = useForm(loginUserCallback,{
-        email: '',
-        password: ''
+    const [isValid,setIsValid] = useState(true)
+    const {onChange,onSubmit,values} = useForm(sendMail,{
+      email: ""
     });
-
-    const [loginUser,{loading}] = useMutation(LOGIN_USER,{
-        update(_,{data:{login: userData }}){
-            context.login(userData)
-            props.history.push('/store')
-        },
+    const [checkMail,{loading, mailExists}] = useLazyQuery(CHECK_EMAIL,{
         onError(err){
-            setErrors(err.graphQLErrors[0].extensions.exception.errors);
+          setIsValid(false);
         },
         variables:values
-    });
-    function loginUserCallback(){
-        loginUser();
+      }
+      );
+      
+    function sendMail(){
+      checkMail();
     }
+   
   return (
     <Container component="main" maxWidth="xs" onSubmit={onSubmit}>
       <CssBaseline />
@@ -90,22 +84,11 @@ export default function SignIn(props){
             fullWidth
             id="email"
             label="Е-адреса"
-            name="email"
             onChange={onChange}
+            name="email"
+            error={isValid}
             autoComplete="email"
             autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Лозинка"
-            type="password"
-            id="password"
-            onChange={onChange}
-            autoComplete="current-password"
           />
           <Button
             type="submit"
@@ -114,20 +97,8 @@ export default function SignIn(props){
             color="primary"
             className={classes.submit}
           >
-            Најавете се
+            Променете лозинка
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="/forgot" variant="body2">
-                Заборавена лозинка ?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="/register" variant="body2">
-                {" Креирајте корисничка сметка. "}
-              </Link>
-            </Grid>
-          </Grid>
         </form>
       </div>
       <Box mt={8}>
@@ -137,16 +108,8 @@ export default function SignIn(props){
   );
 }
 
-const LOGIN_USER = gql`
-mutation login(
-    $email:String!
-    $password:String!
-){
-    login(
-            email: $email
-            password: $password
-    ){
-        id email token
+const CHECK_EMAIL = gql`
+    query($email:String!){
+        checkEmail(email:$email)
     }
-}
 `;

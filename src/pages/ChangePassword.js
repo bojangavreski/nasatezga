@@ -1,19 +1,19 @@
-import React,{useContext,useState} from 'react';
+import React,{useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import {AuthContext} from '../context/auth'
 import {useMutation} from '@apollo/react-hooks';
 import {useForm} from '../util/hooks';
 import gql from 'graphql-tag';
 import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import jwtDecode from 'jwt-decode';
+
 
 function Copyright() {
   return (
@@ -50,27 +50,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn(props){
+
+export default function ChangePassword(props){
+  const token = props.match.params.token;
+  const decodedJWT = jwtDecode(token);
   const classes = useStyles();
-  const context = useContext(AuthContext);
     const [errors,setErrors] = useState({})
-    const {onChange,onSubmit,values} = useForm(loginUserCallback,{
-        email: '',
-        password: ''
+    const {onChange,onSubmit,values} = useForm(changePasswordCallback,{
+        password: '',
+        confirmPassword: '',
+        email:''
     });
 
-    const [loginUser,{loading}] = useMutation(LOGIN_USER,{
-        update(_,{data:{login: userData }}){
-            context.login(userData)
-            props.history.push('/store')
-        },
+    const [changePassword,{loading}] = useMutation(CHANGE_PASSWORD,{
         onError(err){
-            setErrors(err.graphQLErrors[0].extensions.exception.errors);
+            setErrors("Грешка при промена на лозинка");
         },
         variables:values
     });
-    function loginUserCallback(){
-        loginUser();
+    function changePasswordCallback(){
+        values.email = decodedJWT.email;
+        console.log(values)
+        changePassword();
     }
   return (
     <Container component="main" maxWidth="xs" onSubmit={onSubmit}>
@@ -80,7 +81,7 @@ export default function SignIn(props){
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Најава
+          Променете лозинка
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -88,11 +89,12 @@ export default function SignIn(props){
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="Е-адреса"
-            name="email"
+            id="password"
+            label="Лозинка"
+            name="password"
+            type="password"
             onChange={onChange}
-            autoComplete="email"
+            autoComplete="password"
             autoFocus
           />
           <TextField
@@ -100,10 +102,10 @@ export default function SignIn(props){
             margin="normal"
             required
             fullWidth
-            name="password"
-            label="Лозинка"
+            name="confirmPassword"
+            label="Потврдете лозинка"
             type="password"
-            id="password"
+            id="confirmPassword"
             onChange={onChange}
             autoComplete="current-password"
           />
@@ -114,20 +116,8 @@ export default function SignIn(props){
             color="primary"
             className={classes.submit}
           >
-            Најавете се
+            Променете лозинка
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="/forgot" variant="body2">
-                Заборавена лозинка ?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="/register" variant="body2">
-                {" Креирајте корисничка сметка. "}
-              </Link>
-            </Grid>
-          </Grid>
         </form>
       </div>
       <Box mt={8}>
@@ -137,16 +127,16 @@ export default function SignIn(props){
   );
 }
 
-const LOGIN_USER = gql`
-mutation login(
-    $email:String!
+const CHANGE_PASSWORD = gql`
+mutation changePassword(
     $password:String!
+    $confirmPassword:String!
+    $email:String!
 ){
-    login(
-            email: $email
+    changePassword(
             password: $password
-    ){
-        id email token
-    }
+            confirmPassword: $confirmPassword
+            email: $email
+    )
 }
 `;
