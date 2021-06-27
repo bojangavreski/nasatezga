@@ -1,61 +1,72 @@
-import React,{useContext,useState} from 'react';
+import React,{useContext,useEffect,useState} from 'react';
 import {useQuery}  from '@apollo/react-hooks';
-import {Grid, Transition,Container} from 'semantic-ui-react';
-
+import {Grid} from 'semantic-ui-react';
+import {Card,CardHeader,IconButton,CardContent,CardMedia,Avatar,makeStyles,LinearProgress } from '@material-ui/core';
+import FilterListIcon from '@material-ui/icons/FilterList';
 import {FETCH_PRODUCTS_QUERY} from '../util/graphql';
+import FilterDialog from '../components/FilterDialog';
 import PostCard from "../components/PostCard";
 import SortList from "../components/SortList";
-
-import { AuthContext } from "../context/auth";
-//import PostForm from "../components/PostForm";
 import "../App.css";
-const Store = () => {
-    const [selected,setSelected] = useState('');
+import SingleProduct from './SingleProduct';
 
-    /*
-    const populateSelected= (category) => {
-      if(selected.has(category)){
-          selected.delete(category);
-      }else{
-      selected.add(category);
-      }
-      console.log(selected);
+
+
+
+const Store = () => {
+   const [dialog,setDialog] =useState(false);
+   const [filterDialog,setFilterDialog] = useState(false);
+   const [categories, setCategories] = useState({});
+   const sortProducts = (filter) => {
+    var isEmpty=true;
+    var fullState = {}
+     for(const [key,value] of Object.entries(filter)){
+       fullState[key]=true;
+        if(value===true){
+          isEmpty=false;
+          break;
+        }
+     }
+     if(!isEmpty){
+    setCategories(filter)
+  }else{
+    setCategories(fullState)
   }
-  */
-    const { user } = useContext(AuthContext);
-    const { loading, data } = useQuery(FETCH_PRODUCTS_QUERY);
-    if (!data) {
-      return <h1>Вчитува...</h1>
+ }  
+  const trigger = () => {
+    setDialog(!dialog);
+  }
+  const openFilterDialog = ()=>{
+    setFilterDialog(true);
+  }
+  const closeFilterDialog = ()=>{
+    setFilterDialog(false);
+  }
+  useEffect(()=>{
+  },[dialog]);
+    var gridClass = 'product-list';
+    const { loading, data } = useQuery(FETCH_PRODUCTS_QUERY);  
+    if(!data || loading) {
+      gridClass = 'loading-spinner';
     }
     return (
-      <Grid columns={2} fluid style={{marginTop:100}}>
-      <SortList props={setSelected} />
-      <Grid columns={2} style={{marginLeft: 30, marginTop: -80, width:'70%', float: 'right'}} > 
-        <Grid.Row className="page-title">
-          <h1>Продукти</h1>
-        </Grid.Row>
-        <Grid.Row columns={2} fluid={false}>
-          {/*user && (
-            <Grid.Column>
-              <PostForm />
-            </Grid.Column>
-          )*/}
-          {loading ? (
-            <h1>Вчитува...</h1>
-          ) : (
-            <>
-              {data.getProducts && data.getProducts.filter(product=>{
-                return product.category === selected;
-              }).map((product) => (
-              <Grid.Column key={product.id} style={{ marginBottom: 20 }} width={4} fluid={false}>
-                <PostCard product={product} />
-              </Grid.Column>
-            ))}
-            </>
-          )}
-        </Grid.Row>
+      <>
+      <IconButton color="primary" aria-label="upload picture" component="span" className="filter-icon" onClick={() => openFilterDialog()}>
+        <FilterListIcon fontSize="large"></FilterListIcon>
+      </IconButton >
+      <FilterDialog props={closeFilterDialog} filterDialog={filterDialog} callback={sortProducts}/>
+      <SingleProduct dialog={dialog} trigger={trigger}/>
+      <div className='wrapper'>
+      <SortList callback={sortProducts} className="sort-list-store"/>
+      <Grid className={gridClass}>
+      {!loading && data ? data.getProducts.filter(product =>{
+        return categories[product.category] === true
+      }).map(
+        product => {
+      return <PostCard key={product.id} product={product} trigger={trigger}/>}) : <LinearProgress className="spinner"/>}
       </Grid>
-      </Grid>
+      </div>
+      </>
     );
   };
   

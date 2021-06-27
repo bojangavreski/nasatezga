@@ -1,29 +1,64 @@
-import React from 'react'
-import { List , Checkbox , Label} from 'semantic-ui-react'
+import React,{useState,useEffect} from 'react';
+import {FormControlLabel,Checkbox,FormControl, Button,FormGroup} from '@material-ui/core';
+import "../App.css";
+const CATEGORIES =require('../util/categories');
 
-const CATEGORIES = ["Ovoshje","Zelenchuk","Zhito","Meshunkasti","Jatkasti","Pcelarski","Domashni"];
-const translateCat = cat => {
-    switch(cat){
-        case "Zelenchuk" : return "Зеленчук"; break;
-        case "Ovoshje" : return "Овошје"; break;
-        case "Zhito" : return "Жито"; break;
-        case "Meshunkasti" : return "Мешункасти продукти"; break;
-        case "Jatkasti" : return "Јаткасти плодови"; break;
-        case "Pcelarski" : return "Пчеларски продукти"; break;
-        case "Domashni" : return "Домашни преработки"; break;
-    }
-}
 
 const SortList = (props) => {
-
- return <List>
-      <List.Header style={{marginBottom:25}}>Категории</List.Header>
-    {CATEGORIES.map(category=>{
-        return (
-        <List.Item><Checkbox label={translateCat(category)} value={category} onClick={e => props.props(category)} style={{marginBottom:10}}/></List.Item>
-        )
-    })}
-  </List>
+  const [formState,setFormState] = useState(false);
+  useEffect(() => {
+  },[formState]);
+ const initialPopulate = () => { 
+  var initialState = {};
+  var initialRenderState = {};
+  CATEGORIES.forEach(cat => {
+      let catName = cat.cat;
+      initialState[catName] = false;
+      initialRenderState[catName] = true;
+  })
+  setFormState(initialState);
+  props.callback((initialRenderState));
+}
+if(!formState){
+  initialPopulate();
+}
+  
+  const handleChange = async (event) => {
+      await setFormState({...formState,[event.target.name]:event.target.checked})
+  }
+ return (
+  <div className="filter">
+    <FormControl>
+      <h4>Категории</h4>
+      <FormGroup>
+  {CATEGORIES.map(cat => {
+    return (
+    <FormControlLabel
+      className="cat-option"
+      control={
+        <Checkbox
+          color="primary"
+          checked= {formState[cat.cat]}
+          onChange={handleChange}
+          name={cat.cat}
+          value={formState[cat.cat]}
+        />
+      }
+      label={cat.catMK}
+    />)
+  })} 
+    <Button variant="contained" color="primary" className="sort-button" onClick={
+      () => { 
+        props.callback(formState);
+        if(props.closeDialog){
+          props.closeDialog();
+        }    
+      }
+      }>Пребарај</Button>
+  </FormGroup>
+  </FormControl> 
+  </div>
+ )
 }
 
 export default SortList;
