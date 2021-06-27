@@ -35,6 +35,10 @@
     font-weight: 700;
     color:white !important;
 }
+.loading-spinner{
+    width: 100%;
+    margin-top: -9px !important;
+}
 .product-card:hover{
     margin: 0px;
     border-top: 3px rgba(152, 251, 152, 0.829) solid;
