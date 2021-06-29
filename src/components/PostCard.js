@@ -1,0 +1,145 @@
+import React, { useContext } from "react";
+import {
+  Card,
+  CardHeader,
+  CardActions,
+  CardContent,
+  CardMedia,
+  makeStyles,
+  Button,
+  createMuiTheme,
+  ThemeProvider
+} from "@material-ui/core";
+import { red,green } from "@material-ui/core/colors";
+import gql from "graphql-tag";
+import { AuthContext } from "../context/auth";
+import { useQuery } from "@apollo/react-hooks";
+import PersonIcon from '@material-ui/icons/Person';
+const MONTHS = [
+  'Јан',
+  'Фев',
+  'Мар',
+  'Апр',
+  'Мај',
+  'Јун',
+  'Јул',
+  'Авг',
+  'Сеп',
+  'Окт',
+  'Нов',
+  'Дек'
+];
+const printDate= (date)=>{
+  const d = new Date(date);
+  return `${d.getDay()}-${MONTHS[d.getMonth()]}-${d.getFullYear()}`;
+}
+const useStyles = makeStyles((theme) => ({
+  root: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 0,
+    paddingTop: "56.25%", // 16:9
+  },
+  expand: {
+    transform: "rotate(0deg)",
+    marginLeft: "auto",
+    transition: theme.transitions.create("transform", {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: "rotate(180deg)",
+  },
+  avatar: {
+    backgroundColor: red[500],
+  },
+}));
+
+ 
+function PostCard({
+  product: {
+    title,
+    description,
+    image,
+    createdAt,
+    id,
+    creator,
+  },
+  trigger
+}) {
+  
+  const { user } = useContext(AuthContext);
+  const classes = useStyles();
+  const pId = id;
+ 
+
+  const uId = creator;
+
+    const { loading, data } = useQuery(GET_USER_QUERY, {
+    variables: {
+      uId,
+    },
+  });
+  
+  const theme = createMuiTheme({
+    palette: {
+      primary: green,
+    },
+  });
+
+  return data ? (
+    <Card className="product-card">
+      <CardHeader title={title} subheader={printDate(createdAt)} />
+      <CardMedia className={classes.media} image={image} />
+      <CardContent>
+        <div className="product-description">
+          <p>
+        {description}
+          </p>
+        </div>
+        </CardContent>
+      <CardActions>
+        <div className="product-card-footer">
+        <div className="seller-name">
+          <h4 onClick={() => alert("Наскоро ќе ја отвара страната на продавачот")}>
+            <PersonIcon/>
+              {data.getUser.name}
+          </h4>
+        </div>
+        <div className="order-button">
+        <ThemeProvider theme={theme}>
+        <Button variant="contained" color="primary" onClick={() => trigger()}>
+           <p> Нарачај </p>
+        </Button>
+      </ThemeProvider>
+        </div>
+        </div>
+      </CardActions>
+    </Card>
+  ) : <h2></h2>;
+}
+
+export default PostCard;
+
+const GET_USER_QUERY = gql`
+  query ($uId: ID!) {
+    getUser(uId: $uId) {
+      name
+      telephone
+    }
+  }
+`;
+
+// const DELETE_PRODUCT_MUTATION = gql`
+//   mutation deleteProduct($pId: ID!) {
+//     deleteProduct(pId: $pId)
+//   }
+// `;
+// const [deleteProduct, { error }] = useMutation(DELETE_PRODUCT_MUTATION, {
+//   variables: {
+//     pId,
+//   },
+// });
+
+
