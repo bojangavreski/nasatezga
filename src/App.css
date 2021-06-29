@@ -104,6 +104,12 @@
 .close-filter-icon{
     cursor: pointer;
 }
+.select-field{
+    margin-top: 8px;
+}
+.select-label{
+    margin-top: 8px;
+}
 @media screen and (max-width:850px) {
     .wrapper > .filter{
         display: none !important;

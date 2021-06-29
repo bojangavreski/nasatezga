@@ -15,6 +15,8 @@ import SingleProduct from './SingleProduct';
 
 const Store = () => {
    const [dialog,setDialog] =useState(false);
+   const [region,setRegion] = useState();
+   
    const [filterDialog,setFilterDialog] = useState(false);
    const [categories, setCategories] = useState({});
    const sortProducts = (filter) => {

@@ -1,11 +1,12 @@
 import React,{useState,useEffect} from 'react';
-import {FormControlLabel,Checkbox,FormControl, Button,FormGroup} from '@material-ui/core';
+import {FormControlLabel,Checkbox,FormControl, Button,FormGroup,Select,InputLabel,MenuItem} from '@material-ui/core';
 import "../App.css";
 const CATEGORIES =require('../util/categories');
 
 
 const SortList = (props) => {
   const [formState,setFormState] = useState(false);
+  const [regionState,setRegionState] = useState(0); 
   useEffect(() => {
   },[formState]);
  const initialPopulate = () => { 
@@ -25,6 +26,9 @@ if(!formState){
   
   const handleChange = async (event) => {
       await setFormState({...formState,[event.target.name]:event.target.checked})
+  }
+  const onRegionChange = (event) =>{
+      setRegionState(event.target.value);
   }
  return (
   <div className="filter">
@@ -46,7 +50,22 @@ if(!formState){
       }
       label={cat.catMK}
     />)
-  })} 
+  })}
+      <h4>Регион</h4>
+          <Select
+          className="select-field"
+          name="category"
+          fullWidth
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={regionState}
+          onChange={onRegionChange}
+          required
+        >
+          {CATEGORIES.map(category =>{
+             return <MenuItem value={category.cat}>{category.catMK}</MenuItem>
+          })  }
+          </Select>
     <Button variant="contained" color="primary" className="sort-button" onClick={
       () => { 
         props.callback(formState);
