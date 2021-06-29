@@ -56,12 +56,13 @@ type Query{
     checkEmail(email:String!):String!
     getRegion(regionId:ID!):Region!
     getCity(cityId:ID!):City!
+    getCities:[City]
     getCitiesByRegion(regionId:ID!):[City]!
 }
 type Mutation{
     register(registerInput:RegisterInput!):User!
     login(email:String!, password:String!):User!
-    createProduct(title:String!,description:String!,location:String!,image:String!,category:String!):Product!
+    createProduct(title:String!,description:String!,location:String!,image:String!,category:String!,region:String!,creator:String!):Product!
     deleteProduct(pId:ID!):String!
     changeAvatar(url:String!):String!
     changePassword(password:String!,confirmPassword:String!,email:String!):String!

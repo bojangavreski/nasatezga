@@ -42,7 +42,7 @@ module.exports={
         }
     },
     Mutation:{
-        async createProduct(_,{title,description,location,image,category},context){
+        async createProduct(_,{title,description,location,image,category,region,creator},context){
           const user = checkAuth(context);
         if(title.trim()===''){
             throw new Error('Името на продуктот не смее да биде празно!');
@@ -66,8 +66,8 @@ module.exports={
             image,
             createdAt: new Date().toISOString(),
             category,
-            creator:user.id,
-            user:user.id
+            creator,
+            region
         });
         const product = await newProduct.save();
         return product;
