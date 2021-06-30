@@ -39,8 +39,6 @@ module.exports.validateRegisterInput = (
     }
   }
 
- 
-
   return {
     errors,
     valid: Object.keys(errors).length < 1,
@@ -48,14 +46,17 @@ module.exports.validateRegisterInput = (
 };
 
 module.exports.validateLoginInput = (email, password) => {
+  const regEx = /^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/;
   const errors = {};
   if (email.trim() === "") {
     errors.email = "Е-адресата не смее да биде празна!";
   }
+  if(!email.match(regEx)){
+    errors.email = "Внесете валидна е-адреса";
+  }
   if (password === "") {
     errors.password = "Лозинката не смее да биде празна!";
   }
-
   return {
     errors,
     valid: Object.keys(errors).length < 1,

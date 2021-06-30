@@ -44,11 +44,10 @@ function generateToken(user){
             const {errors,valid} = validateLoginInput(email,password);
 
             if(!valid){
-                throw new UserInputError('Пограшен внес',{errors});
+                throw new UserInputError('Погрешен внес',{errors});
             }
 
             const user = await User.findOne({email});
-
             if(!user){
                 errors.general= "Корисникот не е пронајден";
                 throw new UserInputError('User not found',{errors});
