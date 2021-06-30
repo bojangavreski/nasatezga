@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Card,
   CardHeader,
@@ -31,7 +31,7 @@ const MONTHS = [
 ];
 const printDate= (date)=>{
   const d = new Date(date);
-  return `${d.getDay()}-${MONTHS[d.getMonth()]}-${d.getFullYear()}`;
+  return `${d.getDate()}-${MONTHS[d.getMonth()]}-${d.getFullYear()}`;
 }
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -68,20 +68,24 @@ function PostCard({
   },
   trigger
 }) {
-  
-  const { user } = useContext(AuthContext);
-  const classes = useStyles();
-  const pId = id;
- 
-
+  const[user,setUser]=useState({});
   const uId = creator;
-
-    const { loading, data } = useQuery(GET_USER_QUERY, {
+  const { loading, data } = useQuery(GET_USER_QUERY, {
     variables: {
       uId,
     },
   });
   
+  useEffect(()=>{
+    if(data){
+      setUser(data.getUser);
+    }
+  },[data]);
+
+  const classes = useStyles();
+
+
+   
   const theme = createMuiTheme({
     palette: {
       primary: green,
@@ -104,7 +108,7 @@ function PostCard({
         <div className="seller-name">
           <h4 onClick={() => alert("Наскоро ќе ја отвара страната на продавачот")}>
             <PersonIcon/>
-              {data.getUser.name}
+              {user.name}
           </h4>
         </div>
         <div className="order-button">
@@ -117,7 +121,7 @@ function PostCard({
         </div>
       </CardActions>
     </Card>
-  ) : <h2></h2>;
+  ) : <p>Hi</p>
 }
 
 export default PostCard;

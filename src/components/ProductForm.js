@@ -100,6 +100,7 @@ function ProductForm(props) {
           setCities(data.getCities);
         };
           cityHandler(values.location);
+          console.log(values.region);
       },[data,values.location])
       return (
       <Container component="main" maxWidth="xs" onSubmit={onSubmit}>

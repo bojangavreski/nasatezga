@@ -1,14 +1,24 @@
 import React,{useState,useEffect} from 'react';
 import {FormControlLabel,Checkbox,FormControl, Button,FormGroup,Select,InputLabel,MenuItem} from '@material-ui/core';
 import "../App.css";
+import { useQuery } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
 const CATEGORIES =require('../util/categories');
 
 
 const SortList = (props) => {
   const [formState,setFormState] = useState(false);
-  const [regionState,setRegionState] = useState(0); 
+  const [regionState,setRegionState] = useState(0);
+  const [regions,setRegions] = useState([]);
+
+  const {loading,data} = useQuery(FETCH_REGIONS);
+
   useEffect(() => {
-  },[formState]);
+    if(data){
+      setRegions(data.getRegions);
+    }
+  },[data,regionState]);
+
  const initialPopulate = () => { 
   var initialState = {};
   var initialRenderState = {};
@@ -62,13 +72,14 @@ if(!formState){
           onChange={onRegionChange}
           required
         >
-          {CATEGORIES.map(category =>{
-             return <MenuItem value={category.cat}>{category.catMK}</MenuItem>
+          <MenuItem value={0}>Сите региони</MenuItem>
+          {regions.map(region =>{
+             return <MenuItem value={region.regionId}>{region.regionNameMK}</MenuItem>
           })  }
           </Select>
     <Button variant="contained" color="primary" className="sort-button" onClick={
       () => { 
-        props.callback(formState);
+        props.callback(formState,regionState);
         if(props.closeDialog){
           props.closeDialog();
         }    
@@ -81,3 +92,13 @@ if(!formState){
 }
 
 export default SortList;
+
+
+const FETCH_REGIONS = gql`
+  {
+    getRegions{
+      regionNameMK
+      regionId
+    }
+  }
+`;

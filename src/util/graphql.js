@@ -11,6 +11,7 @@ export const FETCH_PRODUCTS_QUERY = gql`
       username
       category
       creator
+      region
     }
   }
 `;

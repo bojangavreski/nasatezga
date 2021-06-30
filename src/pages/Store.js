@@ -15,13 +15,14 @@ import SingleProduct from './SingleProduct';
 
 const Store = () => {
    const [dialog,setDialog] =useState(false);
-   const [region,setRegion] = useState();
+   const [region,setRegion] = useState(0);
    
    const [filterDialog,setFilterDialog] = useState(false);
    const [categories, setCategories] = useState({});
-   const sortProducts = (filter) => {
+   const sortProducts = (filter,region) => {
     var isEmpty=true;
     var fullState = {}
+    setRegion(region);
      for(const [key,value] of Object.entries(filter)){
        fullState[key]=true;
         if(value===true){
@@ -62,7 +63,14 @@ const Store = () => {
       <SortList callback={sortProducts} className="sort-list-store"/>
       <Grid className={gridClass}>
       {!loading && data ? data.getProducts.filter(product =>{
+        if(!region){
         return categories[product.category] === true
+        }else if(product.region!=null && region){
+          console.log(product);
+          return categories[product.category] === true && product.region===region;
+        }else{
+          return false;
+        }
       }).map(
         product => {
       return <PostCard key={product.id} product={product} trigger={trigger}/>}) : <LinearProgress className="spinner"/>}
