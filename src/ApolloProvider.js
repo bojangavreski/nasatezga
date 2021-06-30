@@ -10,8 +10,8 @@ import {setContext} from 'apollo-link-context';
 
 
 const httpLink = createHttpLink({
-    //uri:'https://nashatezgamk.herokuapp.com/'
-    uri:'http://localhost:5001/'
+    uri:'https://nashatezgamk.herokuapp.com/'
+    //uri:'http://localhost:5001/'
 });
 
 const authLink = setContext(()=>{

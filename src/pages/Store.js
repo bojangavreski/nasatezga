@@ -48,7 +48,11 @@ const Store = () => {
   useEffect(()=>{
   },[dialog]);
     var gridClass = 'product-list';
-    const { loading, data } = useQuery(FETCH_PRODUCTS_QUERY);  
+    const { loading, data } = useQuery(FETCH_PRODUCTS_QUERY,{
+      onError(err){
+        console.log(err);
+      }
+    });  
     if(!data || loading) {
       gridClass = 'loading-spinner';
     }
