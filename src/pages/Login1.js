@@ -59,13 +59,17 @@ export default function SignIn(props){
         password: ''
     });
 
-    const [loginUser,{loading}] = useMutation(LOGIN_USER,{
+    const [loginUser,{loading},error] = useMutation(LOGIN_USER,{
         update(_,{data:{login: userData }}){
             context.login(userData)
             props.history.push('/store')
         },
         onError(err){
-            setErrors(err.graphQLErrors[0].extensions.exception.errors);
+            setErrors({
+              ...errors,
+              email:err.graphQLErrors[0].extensions.errors.email,
+              password:err.graphQLErrors[0].extensions.errors.password
+            })
         },
         variables:values
     });
@@ -93,6 +97,7 @@ export default function SignIn(props){
             name="email"
             onChange={onChange}
             autoComplete="email"
+            error={errors.email ? true : false}
             autoFocus
           />
           <TextField
@@ -106,6 +111,7 @@ export default function SignIn(props){
             id="password"
             onChange={onChange}
             autoComplete="current-password"
+            error={errors.password ? true : false}
           />
           <Button
             type="submit"

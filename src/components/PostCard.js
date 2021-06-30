@@ -57,19 +57,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
  
-function PostCard({
-  product: {
-    title,
-    description,
-    image,
-    createdAt,
-    id,
-    creator,
-  },
-  trigger
-}) {
+function PostCard(props) {
   const[user,setUser]=useState({});
-  const uId = creator;
+  const uId = props.product.creator;
   const { loading, data } = useQuery(GET_USER_QUERY, {
     variables: {
       uId,
@@ -80,6 +70,7 @@ function PostCard({
     if(data){
       setUser(data.getUser);
     }
+    console.log(user);
   },[data]);
 
   const classes = useStyles();
@@ -92,14 +83,14 @@ function PostCard({
     },
   });
 
-  return data ? (
+  return (
     <Card className="product-card">
-      <CardHeader title={title} subheader={printDate(createdAt)} />
-      <CardMedia className={classes.media} image={image} />
+      <CardHeader title={props.product.title} subheader={printDate(props.product.createdAt)} />
+      <CardMedia className={classes.media} image={props.product.image} />
       <CardContent>
         <div className="product-description">
           <p>
-        {description}
+        {props.product.description}
           </p>
         </div>
         </CardContent>
@@ -113,7 +104,7 @@ function PostCard({
         </div>
         <div className="order-button">
         <ThemeProvider theme={theme}>
-        <Button variant="contained" color="primary" onClick={() => trigger()}>
+        <Button variant="contained" color="primary" onClick={() => props.trigger()}>
            <p> Нарачај </p>
         </Button>
       </ThemeProvider>
@@ -121,7 +112,7 @@ function PostCard({
         </div>
       </CardActions>
     </Card>
-  ) : <p>Hi</p>
+  )
 }
 
 export default PostCard;
