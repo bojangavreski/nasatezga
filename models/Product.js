@@ -10,6 +10,7 @@ const productSchema = new Schema({
     image:String,
     category:String,
     creator:String,
+    region:String,
     user:{
         type:Schema.Types.ObjectId,
         ref: "users"

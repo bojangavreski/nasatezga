@@ -6,6 +6,10 @@ module.exports ={
         async getRegion(_,{regionId}){
             const region = await Region.findOne({regionId});
             return region;
+        },
+        async getRegions(){
+            const regions = await Region.find().sort({regionNameMK:1});
+            return regions;
         }
     },
     Mutation:{

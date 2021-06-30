@@ -56,7 +56,6 @@ module.exports={
         if(category.trim()===''){
             throw new Error('Одберете категорија');
         } 
-        
         const newProduct = new Product({
             title,
             description,
@@ -66,8 +65,8 @@ module.exports={
             image,
             createdAt: new Date().toISOString(),
             category,
-            creator,
-            region
+            region,
+            creator:user.id,
         });
         const product = await newProduct.save();
         return product;

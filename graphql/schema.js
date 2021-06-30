@@ -12,7 +12,7 @@ type Product{
     category:String!
     telephone:String!
     creator:ID!
-    region:String!
+    region:String
     quantity:Int!
 }
 type User{
@@ -55,6 +55,7 @@ type Query{
     getUser(uId:ID!):User
     checkEmail(email:String!):String!
     getRegion(regionId:ID!):Region!
+    getRegions:[Region]
     getCity(cityId:ID!):City!
     getCities:[City]
     getCitiesByRegion(regionId:ID!):[City]!
