@@ -70,7 +70,6 @@ function PostCard(props) {
     if(data){
       setUser(data.getUser);
     }
-    console.log(user);
   },[data]);
 
   const classes = useStyles();

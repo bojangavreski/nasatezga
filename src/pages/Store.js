@@ -70,7 +70,6 @@ const Store = () => {
         if(!region){
         return categories[product.category] === true
         }else if(product.region!=null && region){
-          console.log(product);
           return categories[product.category] === true && product.region===region;
         }else{
           return false;
