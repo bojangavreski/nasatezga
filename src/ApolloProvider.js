@@ -10,7 +10,7 @@ import {setContext} from 'apollo-link-context';
 
 
 const httpLink = createHttpLink({
-    uri:'https://nashatezgamk.herokuapp.com/'
+    uri:'https://nasha-tezga-mk.herokuapp.com/'
     //uri:'http://localhost:5001/'
 });
 
