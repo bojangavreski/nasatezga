@@ -1,0 +1,135 @@
+#root > .ui.container{
+    width: 100%;
+}
+.product-card{
+    margin: 5px;
+    height: 400px;
+    width: 250px;
+}
+.product-card-footer{
+    display: flex;
+    flex-direction: row;
+}
+.product-card:hover{
+    border-top: 3px rgba(152, 251, 152, 0.829) solid;
+    border-bottom: 3px rgba(152, 251, 152, 0.829) solid;
+}
+.seller-name{
+    max-width: 75px;
+    margin-right: 30px;
+    margin-top: 30px;
+    text-align: center;
+    color: grey !important;
+}
+.seller-name > h4{
+    cursor: pointer;
+}
+.product-description{
+    height: 70px;
+}
+.product-description > p{
+    overflow: hidden;
+}
+.order-button{
+    max-width: 75px;
+    margin-left: 50px;
+    margin-top: 40px;
+}
+.MuiButton-containedPrimary{
+    font-weight: 700;
+    color:white !important;
+}
+.loading-spinner{
+    width: 100%;
+    margin-top: -9px !important;
+}
+.spinner{
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.sort-button{
+    margin: auto !important;
+}
+.filter-icon{
+    display:none!important;
+}
+.store-image{
+    width: 60%;
+    height: 450px;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: 100% 100%;
+}
+.store-image > img {
+    max-height: 450px;
+}
+.filter{
+    border-left: 3px rgba(112, 111, 111, 0) solid;
+    border-right: 3px rgba(112, 111, 111, 0.24) solid;
+    min-width: 250px;
+    display: inline-block;
+    height: 700px;
+    margin-top:110px;
+    margin-right: 20px;
+    margin-left: 40px;
+    justify-content: left;
+    padding-left: 0px;
+}
+.cat-option{
+    max-width: 100% !important;
+}
+.wrapper{
+    max-width: 100% !important;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+.MuiFormControlLabel-root{
+    width: 100%;
+    padding-left: 25px;
+}
+.profile-product-list{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.profile-product-list > div{
+    margin:20px;
+}
+.product-list{
+    max-width: 100vw !important;
+    margin-top: 50px !important;
+    margin-right: 10px !important;
+    margin-left: 60px !important;
+}
+.container{
+    max-width: 100%;
+}
+.close-filter-icon{
+    cursor: pointer;
+}
+.select-field{
+    margin-top: 8px;
+}
+.select-label{
+    margin-top: 8px;
+}
+@media screen and (max-width:850px) {
+    .wrapper > .filter{
+        display: none !important;
+        margin:0px !important;
+    }
+    .filter{
+        margin: 0 !important;
+        border:none;
+    }
+    .filter-icon{
+        display:inline-block !important;
+        width: auto !important;
+        margin-left:80% !important;
+        margin-top: 25px !important;
+        margin-bottom: -25px !important;
+    }
+}
