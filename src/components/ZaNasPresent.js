@@ -10,7 +10,7 @@ import TrackChangesIcon from '@material-ui/icons/TrackChanges';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import LinkOutlinedIcon from '@material-ui/icons/LinkOutlined';
 import Footer from '../components/NewLandingPage/Footer'
-import RuralLogo from './Images/rural.png'
+import RuralLogo from './Images/rural_zanas.png'
 import { Image } from 'semantic-ui-react';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';const useStyles = makeStyles((theme) => ({
   appBar: {
