@@ -1,4 +1,5 @@
 import React,{useEffect,useState} from "react";
+import AddImage from './AddImage';
 import { Form} from "semantic-ui-react";
 import gql from "graphql-tag";
 import { useForm } from "../util/hooks";
@@ -151,6 +152,7 @@ function ProductForm(props) {
              autoComplete="title"
              autoFocus
           />
+          <AddImage/>
          <InputLabel className=".select-label" id="demo-simple-select-helper-label">Град</InputLabel>
           <Select
           className="select-field"
