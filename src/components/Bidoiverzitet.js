@@ -86,7 +86,7 @@ function App() {
       <AppBar className={classes.appBar} position="static">
       </AppBar>
       <Box className={classes.hero}>
-       {!isMobile? <Box  className = {classes.boxText}> Дознајте повеќе за Агробиодиверзитетот во нашата земја </Box>
+       {!isMobile? <Box  className = {classes.boxText}> Дознајте повеќе за Агробиодиверзитетот </Box>
        : null }
         </Box>
       <Container maxWidth="lg" className={classes.blogsContainer}>

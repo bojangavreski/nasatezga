@@ -11,9 +11,12 @@ import CardActions from '@material-ui/core/CardActions';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import Pagination from '@material-ui/lab/Pagination';
 import { DeviceSize } from '../NewNavBar/DeviceSize';
 import { useMediaQuery } from 'react-responsive';
+import CivicaLogo from '../Images/civica.png'
+import KonektLogo from '../Images/konekt.jpg'
+import ImeLogo from '../Images/ime.jpg'
+import RuralLogo from '../Images/rural.png'
 const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: "#fff"
@@ -99,28 +102,119 @@ function App() {
       
       <Container maxWidth="lg" className={classes.blogsContainer}>
         <Typography variant="h4" className={classes.blogTitle}>
-          Новости
+          Бизнис Партнери
         </Typography>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={4}>
             <Card className={classes.card}>
+              <a href= "https://civicamobilitas.mk" target="blank">
               <CardActionArea>
                 <CardMedia
                   className={classes.media}
-                  image="https://images.pexels.com/photos/2004161/pexels-photo-2004161.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                  image={CivicaLogo}
                   title="Contemplative Reptile"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
-                    React useContext
+                    Civica Mobilitias
                   </Typography>
                   <Typography variant="body2" color="textSecondary" component="p">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                    across all continents except Antarctica
+                  Цивика мобилитас е програма за поддршка на граѓанското општество чија трета фаза започна да се спроведува од 1 јануари 2019 година и 
+                  ќе трае до 31 декември 2022 година.
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              </a>
+
+              <CardActions className={classes.cardActions}>
+                <Box className={classes.author}>
+                  <Box ml={2}></Box>
+                </Box>
+                <Box>
+                  <BookmarkBorderIcon />
+                </Box>
+              </CardActions>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card className={classes.card}>
+              <a href="https://ime.org.mk" target="blank">
+              <CardActionArea>
+                <CardMedia
+                  className={classes.media}
+                  image={ImeLogo}
+                  title="Contemplative Reptile"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    IME - Increasing Market Employability
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                  ИМЕ во соработка со актерите на пазарот се стреми да го подобри квалитетот и испораката на услугите за деловна поддршка, пристап до финансии и инвестиции.
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              </a>
+              <CardActions className={classes.cardActions}>
+                <Box className={classes.author}>
+                  <Box ml={2}></Box>
+                </Box>
+                <Box>
+                  <BookmarkBorderIcon />
+                </Box>
+              </CardActions>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card className={classes.card}>
+              <a href="http://konekt.org.mk" target= "blank">
+              <CardActionArea>
+                <CardMedia 
+                  className={classes.media}
+                  image={RuralLogo}
+                  title="Contemplative Reptile"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Рурална Коалиција
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                   Рурална коалиција се стреми кон подобрување на квалитетот на живот во руралните средини; едукација, организација и заедничко делување на земјоделците.
                   </Typography>
                 </CardContent>
               </CardActionArea>
               <CardActions className={classes.cardActions}>
+                <Box className={classes.author}>
+                  <Box ml={2}></Box>
+                </Box>
+                <Box>
+                  <BookmarkBorderIcon />
+                </Box>
+              </CardActions>
+              </a>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card className={classes.card}>
+              <a href="https://rural.mk" target="blank">
+              <CardActionArea>
+                <CardMedia
+                  className={classes.media}
+                  image={KonektLogo}
+                  title="Contemplative Reptile"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    KONEKT
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                  Конект е здружение на граѓани формирано од неколку ентузијасти кои веруваат дека Македонија 
+                  има потенцијал да се развива потпирајќи се на локални ресурси и капацитети.
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              </a>
+              {/* <CardActions className={classes.cardActions}>
                 <Box className={classes.author}>
                   <Box ml={2}></Box>
                 </Box>
@@ -135,35 +229,7 @@ function App() {
               <CardActionArea>
                 <CardMedia
                   className={classes.media}
-                  image="https://images.pexels.com/photos/34600/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                  title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    React Router
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                    across all continents except Antarctica
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions className={classes.cardActions}>
-                <Box className={classes.author}>
-                  <Box ml={2}></Box>
-                </Box>
-                <Box>
-                  <BookmarkBorderIcon />
-                </Box>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card className={classes.card}>
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                  image="https://images.pexels.com/photos/325111/pexels-photo-325111.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                   title="Contemplative Reptile"
                 />
                 <CardContent>
@@ -211,70 +277,10 @@ function App() {
                 <Box>
                   <BookmarkBorderIcon />
                 </Box>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card className={classes.card}>
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image="https://images.pexels.com/photos/325111/pexels-photo-325111.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                  title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    React useContext
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                    across all continents except Antarctica
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions className={classes.cardActions}>
-                <Box className={classes.author}>
-                  <Box ml={2}></Box>
-                </Box>
-                <Box>
-                  <BookmarkBorderIcon />
-                </Box>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card className={classes.card}>
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image="https://images.pexels.com/photos/325111/pexels-photo-325111.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                  title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    React useContext
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                    across all continents except Antarctica
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions className={classes.cardActions}>
-                <Box className={classes.author}>
-                  <Box ml={2}></Box>
-                </Box>
-                <Box>
-                  <BookmarkBorderIcon />
-                </Box>
-              </CardActions>
+              </CardActions> */}
             </Card>
           </Grid>
         </Grid>
-        
-        <Box my={4} className={classes.paginationContainer}>
-          <Pagination count={10} />
-        </Box>
       </Container>
     </div>
   );
