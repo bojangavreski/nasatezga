@@ -15,6 +15,7 @@ import Forgot from './pages/ForgotPassword';
 import './App.css';
 import Avtohtoni from './pages/Avtohtoni';
 import Subscription from './pages/Subscription';
+import ZaNas from './pages/ZaNas'
 function App() {
 	return (
 		<AuthProvider>
@@ -23,7 +24,7 @@ function App() {
 					<NewNav />
 					<Route exact path="/" component={Home} />
 					<Route exact path="/biodiv" component={Biodiv} />
-					<Route exact path="/avtohtoni" component={Avtohtoni} />
+					<Route exact path="/ZaNas" component={ZaNas} />
 				</div>
 				<Container>
 					<Route exact path="/subscription" component={Subscription} />

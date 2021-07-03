@@ -60,7 +60,7 @@ export function NavLinks(props) {
           </LinkItem>
           <LinkItem>
           <NavItem className= "nav-item-n">
-            <Link href="/avtohtoni">Автохтони Сорти</Link>
+            <Link href="/ZaNas">За Нас</Link>
             </NavItem>
           </LinkItem>
         <LinkItem>

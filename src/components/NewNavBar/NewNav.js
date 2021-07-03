@@ -6,7 +6,8 @@ import { NavLinks } from "./navLinks";
 import { MobileNavLinks } from "./mobileNavLinks";
 import { DeviceSize } from "./DeviceSize";
 import { makeStyles } from '@material-ui/core/styles';
-
+import LogoNav from '../Images/logoT.png'
+import { Image } from "semantic-ui-react";
 const NavbarContainer = styled.div`
   width: 100%;
   height: 60px;
@@ -46,6 +47,9 @@ export function NewNav(props) {
   const classes = useStyles();
   return (
     <NavbarContainer>
+      <div>
+      <Image src= {LogoNav} width={150} height= {150}/>
+      </div>
       <LeftSection>
       </LeftSection>
       <MiddleSection>{!isMobile && <NavLinks />}</MiddleSection>
