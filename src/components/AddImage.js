@@ -4,7 +4,7 @@ import { Button, IconButton } from "@material-ui/core";
 import { PhotoCamera } from "@material-ui/icons";
 
 const postImage = (img) => {
-  const returnValue = {};
+  var returnValue = {};
   const formData = new FormData();
   const header = new Headers();
   header.append("Authorization", "Client-ID 546c25a59c58ad7");
