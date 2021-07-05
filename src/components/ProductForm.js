@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AddImage from "./AddImage";
-import { Form } from "semantic-ui-react";
+import { Form, ImageGroup } from "semantic-ui-react";
 import gql from "graphql-tag";
 import { useForm } from "../util/hooks";
 import { useMutation, useQuery } from "@apollo/react-hooks";

@@ -21,12 +21,13 @@ const postImage = (img) => {
   return returnValue;
 };
 function AddImage(props) {
-  const [image, setImage] = useState();
-  const updateImage = (event) => {
+  const [image, setImage] = useState("");
+  const updateImage = async (event) => {
     event.preventDefault();
-    console.log(event.target.files[0]);
     const file = event.target.files[0];
-    setImage(postImage(file).link);
+    await setImage(postImage(file).link);
+    props.props(image);
+    //props(image);
   };
   const useStyles = makeStyles((theme) => ({
     root: {
