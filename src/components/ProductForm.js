@@ -105,6 +105,7 @@ function ProductForm(props) {
   }, [data, values.location]);
 
   const setImage = (img) => {
+    console.log("qwdq");
     values.image = img;
   };
   return (
