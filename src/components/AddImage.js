@@ -18,14 +18,14 @@ const postImage = (img) => {
     .then((data) => (returnValue = data))
     .catch((err) => console.log(err));
 
-  return returnValue;
+  return returnValue.link;
 };
 function AddImage(props) {
   const [image, setImage] = useState("");
   const updateImage = async (event) => {
     event.preventDefault();
     const file = event.target.files[0];
-    await setImage(postImage(file).link);
+    await setImage(postImage(file));
     props.props(image);
     //props(image);
   };
