@@ -22,7 +22,6 @@ function AddImage(props) {
     })
       .then((data) => data.json())
       .then((data) => {
-        console.log("1231");
         props.props(data);
       })
       .catch((err) => console.log(err));
