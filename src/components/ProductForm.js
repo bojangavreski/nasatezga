@@ -104,9 +104,12 @@ function ProductForm(props) {
     cityHandler(values.location);
   }, [data, values.location]);
 
-  const setImage = (img) => {
-    console.log("qwdq");
-    values.image = img;
+  const setImage = (data) => {
+    if (data.link) {
+      values.image = data.link;
+    } else {
+      console.log(data);
+    }
   };
   return (
     <Container component="main" maxWidth="xs" onSubmit={onSubmit}>
