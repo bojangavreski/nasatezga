@@ -105,7 +105,7 @@ function ProductForm(props) {
   }, [data, values.location]);
 
   const setImage = (data) => {
-    if (data.link) {
+    if (data) {
       values.image = data.data.link;
       console.log(values.image);
       console.log(data);
