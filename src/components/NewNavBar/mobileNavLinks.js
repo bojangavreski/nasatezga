@@ -13,13 +13,21 @@ const LinksWrapper = styled.ul`
   margin: 0;
   padding: 0;
   display: flex;
+<<<<<<< HEAD
   height: 40%;
+=======
+  height: 100%;
+>>>>>>> 986170ab961ba3765d94a16caac02cb81a956892
   list-style: none;
   background-color: #fff;
   width: 100%;
   flex-direction: column;
   position: fixed;
+<<<<<<< HEAD
   top: 80px;
+=======
+  top: 65px;
+>>>>>>> 986170ab961ba3765d94a16caac02cb81a956892
   left: 0;
 `;
 
@@ -77,7 +85,6 @@ export function MobileNavLinks(props) {
           <Marginer />
           <Accessibility />
         </LinksWrapper>
-
       )}
     </NavLinksContainer>
                 <style jsx>{`
