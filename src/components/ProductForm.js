@@ -5,14 +5,13 @@ import gql from "graphql-tag";
 import { useForm } from "../util/hooks";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import "../App.css";
-
+import {makeStyles} from "@material-ui/styles"
 import {
   Container,
   Typography,
   TextField,
   CssBaseline,
   Button,
-  makeStyles,
   Select,
   MenuItem,
   InputLabel,
@@ -37,21 +36,18 @@ function ProductForm(props) {
 
   const useStyles = makeStyles((theme) => ({
     paper: {
-      marginTop: theme.spacing(8),
+
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
     },
     avatar: {
-      margin: theme.spacing(1),
       backgroundColor: "#03941b",
     },
     form: {
       width: "100%", // Fix IE 11 issue.
-      marginTop: theme.spacing(1),
     },
     submit: {
-      margin: theme.spacing(3, 0, 2),
       backgroundColor: "#03941b",
     },
   }));
