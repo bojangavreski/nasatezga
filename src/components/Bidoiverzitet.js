@@ -37,7 +37,7 @@ let gridStyle;
   if (!isMobile){
      gridStyle = {
       display:"grid",
-      gridTemplateColumns:"repeat(4, 1fr)", 
+      gridTemplateColumns:"repeat(3, 1fr)", 
       alignItems:"baseline"
      }
   }
@@ -51,7 +51,7 @@ let gridStyle;
 }
    
     let firstGridCard;
-    if (!isMobile){ firstGridCard={marginLeft:"3px", width:"350px", borderRadius:"30px" } }
+    if (!isMobile){ firstGridCard={marginLeft:"3px", width:"450px", borderRadius:"30px" } }
      else{firstGridCard={marginLeft:"0px", width:"350px", borderRadius:"30px"}}
 
   return (
@@ -65,7 +65,7 @@ let gridStyle;
 <div style={gridStyle}>
   
 <div class="ui card" style={firstGridCard}>
-   <Image src={Primer1}/>
+   <Image src={Primer1} />
   <div class="content">
     <h3> Даниела Мишевска </h3>
     <div class="meta">
@@ -80,7 +80,7 @@ let gridStyle;
   </div>
   </div>
 
-  <div class="ui card" style={{width:"350px",borderRadius:"30px"}}>
+  <div class="ui card" style={{width:"450px",borderRadius:"30px"}}>
   <Image src={Primer2} />
   <div class="content">
     <h3> Дивна Цветковска </h3>
@@ -98,7 +98,7 @@ let gridStyle;
 
 
 
-<div class="ui card" style={{width:"350px",borderRadius:"30px"}} >
+<div class="ui card" style={{width:"450px",borderRadius:"30px"}} >
 <Image src={Primer3}/>
   <div class="content">
     <h3> Добрила Даиловска </h3>
@@ -114,7 +114,7 @@ let gridStyle;
   </div>
   </div>
 
-  <div class="ui card" style={{width:"350px",borderRadius:"30px"}}>
+  <div class="ui card" style={{width:"450px",borderRadius:"30px"}}>
    <Image src={Primer4}/>
   <div class="content">
     <h3> Живка Ѓурчиновска </h3>
@@ -146,7 +146,7 @@ let gridStyle;
   </div>
   </div>
 
-  <div class="ui card" style={{width:"350px",borderRadius:"30px"}}>
+  <div class="ui card" style={{width:"450px",borderRadius:"30px"}}>
    <Image src={Primer6}/>
   <div class="content">
     <h3> Славица Јаневска </h3>
@@ -162,7 +162,7 @@ let gridStyle;
   </div>
   </div>
 
-  <div class="ui card" style={{width:"350px", borderRadius:"30px"}}>
+  <div class="ui card" style={{width:"450px", borderRadius:"30px"}}>
    <Image src={Primer7} style={{borderRadius:"0px"}}/>
   <div class="content">
     <h3> Цутика Лазаревска </h3>

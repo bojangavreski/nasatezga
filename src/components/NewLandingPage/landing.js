@@ -71,30 +71,31 @@ function App() {
   const isMobile = useMediaQuery({maxWidth:DeviceSize.mobile})
   return (
     <div>
-      {!isMobile? <Image src={LandingImage} style={{paddingTop:"650px"}}/> : <Image src={LandingImage}/> }
+      {!isMobile? <Image src={LandingImage} style={{paddingTop:"700px"}}/> : <Image src={LandingImage}/> }
       <a href="/biodiv"> 
       <div style={{display:"flex",marginTop:"30px"}}>
-    {!isMobile?<div style={{width: "400px",margin:"50px 0 0 250px" }}>
+    {!isMobile?<div style={{width:"500px",margin:"50px 0 0 100px" }}>
     <h1 style={{marginTop:"-10px"}}> Нашите жени </h1>
     <Image src={ToBlog} style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
-    </div>: 
+    </div>
+    : 
 
     //MOBILE :
       <div style={{width: "80%", justifyContent:"center", margin:"auto"}}>
         <h1 style={{marginTop:"-10px", textAlign:"center"}}> Нашите жени </h1>
         <p style={{textAlign:"center"}}>Прочитајте ги приказните на нашите жени, проверете го квалитетот и начинот <br/> 
     на кој тие ги одгледуваат своите производи. </p>
-        <Image src={ToBlog} style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
+        <Image src={ToBlog}  style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
         </div>
         }
-    {!isMobile?<h3 style={{textAlign:"center", margin:"250px 0 0 50px"}}> Прочитајте ги приказните на нашите жени, проверете го квалитетот и начинот <br/> 
+    {!isMobile?<h3 style={{textAlign:"center", margin:"330px 0 0 50px"}}> Прочитајте ги приказните на нашите жени, проверете го квалитетот и начинот <br/> 
     на кој тие ги одгледуваат своите производи, стапете во контакт во секој момент.</h3>: null}
     </div>
     </a>
 
     <a href="/store">
     <div style={{display:"flex", marginTop:"30px"}}>
-    {!isMobile?<div style={{width: "400px",margin:"50px 0 0 250px"}}>
+    {!isMobile?<div style={{width:"500px",margin:"50px 0 0 100px" }}>
     <h1 style={{marginTop:"10px"}}> Продавница </h1>
     <Image src={ToStore} style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
     </div>:
@@ -105,7 +106,7 @@ function App() {
      <Image src={ToStore} style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
      </div>
     }
-    {!isMobile?<h3 style={{textAlign:"center", margin:"283px 0 0 40px"}}> Посетете ја нашата продавница, купувајте ги најдобрите <br/> производи одгледани со љубов. 
+    {!isMobile?<h3 style={{textAlign:"center", margin:"330px 0 0 40px"}}> Посетете ја нашата продавница, купувајте ги најдобрите <br/> производи одгледани со љубов. 
     Производите чекаат на вас.<br/>  Со само неколку кликања, најлесно до сега ќе може да купите посакуван поризвод.
     </h3>: null}
     </div>
@@ -113,7 +114,7 @@ function App() {
 
     <a href="/ZaNas">
     <div style={{display:"flex", marginTop:"30px", borderRadius:"170px"}}>
-    {!isMobile?<div style={{width: "400px",margin:"50px 0 0 250px"}}>
+    {!isMobile?<div style={{width:"500px",margin:"50px 0 0 100px" }}>
     <h1 style={{marginTop:"40px"}}> За нас </h1>
     <Image src={ToAbout} style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
     </div>:
@@ -123,7 +124,7 @@ function App() {
           <Image src={ToAbout} style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
     </div>
      }
-    {!isMobile?<h3 style={{textAlign:"center", margin:"330px 0 0 50px"}}> Дознајте повеќе за нашата визија и мисија, кои сме ние, за што се залагаме <br/> 
+    {!isMobile?<h3 style={{textAlign:"center", margin:"350px 0 0 50px"}}> Дознајте повеќе за нашата визија и мисија, кои сме ние, за што се залагаме <br/> 
     и како им помагаме на земјодлеците со користење на нашата платформа.</h3> : null}
     </div>
     </a>
