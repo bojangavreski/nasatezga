@@ -10,13 +10,14 @@ import TrackChangesIcon from '@material-ui/icons/TrackChanges';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import LinkOutlinedIcon from '@material-ui/icons/LinkOutlined';
 import RuralLogo from './Images/rural_zanas.png'
+import ZaNasLogo from './Images/z37.jpg'
 import { Image } from 'semantic-ui-react';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: "#fff"
   },
   hero: {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1789&q=80')`,
+    // backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(`${ZaNasLogo}`),
     height: "500px",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -81,11 +82,9 @@ function App() {
     <div className="App">
       <AppBar className={classes.appBar} position="static">
       </AppBar>
-      <Box className={classes.hero}>
-        <Box> 
-        <span className={classes.boxText}>За Нас</span> 
-          </Box>
-      </Box>
+      <Box>
+     <Image src={ZaNasLogo}/>
+        </Box>
       <Container maxWidth="lg" className={classes.blogsContainer}>
       <Box style= {{display:"flex", marginTop: "30px"}} > 
       <span className= {classes.spanText}>Визија</span>

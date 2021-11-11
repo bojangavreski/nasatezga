@@ -10,10 +10,13 @@ import { DialogContent } from '@material-ui/core';
 import { DialogContentText } from '@material-ui/core';
 import { DialogTitle } from '@material-ui/core';
 import { Slide } from '@material-ui/core';
-import Primer1 from './Images/Primer.jpg'
+import Primer1 from './Images/Primer1.jpg'
 import Primer2 from './Images/Primer2.jpg'
 import Primer3 from './Images/Primer3.jpg'
 import Primer4 from './Images/Primer4.jpg'
+import Primer5 from './Images/Primer5.jpg'
+import Primer6 from './Images/Primer6.jpg'
+import Primer7 from './Images/Primer7.jpg'
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -48,7 +51,8 @@ let gridStyle;
 }
    
     let firstGridCard;
-    if (!isMobile){ firstGridCard={marginLeft:"20px" } } else{firstGridCard={marginLeft:"0px"}}
+    if (!isMobile){ firstGridCard={marginLeft:"3px", width:"350px", borderRadius:"30px" } }
+     else{firstGridCard={marginLeft:"0px", width:"350px", borderRadius:"30px"}}
 
   return (
     <>
@@ -59,10 +63,11 @@ let gridStyle;
         <h1 style={{textAlign:"center"}}> Приказни на жените кои се дел од Наша Тезга </h1>
 
 <div style={gridStyle}>
+  
 <div class="ui card" style={firstGridCard}>
    <Image src={Primer1}/>
   <div class="content">
-    <h3> Даниела Попеска </h3>
+    <h3> Даниела Мишевска </h3>
     <div class="meta">
     <i class="users icon"></i>
       <span class="date">Член на Наша Тезга</span>
@@ -75,10 +80,10 @@ let gridStyle;
   </div>
   </div>
 
-  <div class="ui card">
-  <Image src={Primer2}/>
+  <div class="ui card" style={{width:"350px",borderRadius:"30px"}}>
+  <Image src={Primer2} />
   <div class="content">
-    <h3> Валентина Станковиќ </h3>
+    <h3> Дивна Цветковска </h3>
     <div class="meta">
     <i class="users icon"></i>
       <span class="date">Член на Наша Тезга</span>
@@ -93,10 +98,10 @@ let gridStyle;
 
 
 
-<div class="ui card">
+<div class="ui card" style={{width:"350px",borderRadius:"30px"}} >
 <Image src={Primer3}/>
   <div class="content">
-    <h3> Елена Кипријановска </h3>
+    <h3> Добрила Даиловска </h3>
     <div class="meta">
     <i class="users icon"></i>
       <span class="date">Член на Наша Тезга</span>
@@ -109,10 +114,58 @@ let gridStyle;
   </div>
   </div>
 
-  <div class="ui card">
+  <div class="ui card" style={{width:"350px",borderRadius:"30px"}}>
    <Image src={Primer4}/>
   <div class="content">
-    <h3> Емилија Филиповиќ </h3>
+    <h3> Живка Ѓурчиновска </h3>
+    <div class="meta">
+    <i class="users icon"></i>
+      <span class="date">Член на Наша Тезга</span>
+      <div style={{display:"flex", justifyContent: "flex-end", margin:"10px auto auto auto"}} onClick={handleClickOpen}>
+      <Button variant="contained" color="primary">
+           <p> Приказна </p>
+        </Button>
+        </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="ui card" style={firstGridCard}>
+   <Image src={Primer5}/>
+  <div class="content">
+    <h3> Лидија Јаневска </h3>
+    <div class="meta">
+    <i class="users icon"></i>
+      <span class="date">Член на Наша Тезга</span>
+      <div style={{display:"flex", justifyContent: "flex-end", margin:"10px auto auto auto"}} onClick={handleClickOpen}>
+      <Button variant="contained" color="primary">
+           <p> Приказна </p>
+        </Button>
+        </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="ui card" style={{width:"350px",borderRadius:"30px"}}>
+   <Image src={Primer6}/>
+  <div class="content">
+    <h3> Славица Јаневска </h3>
+    <div class="meta">
+    <i class="users icon"></i>
+      <span class="date">Член на Наша Тезга</span>
+      <div style={{display:"flex", justifyContent: "flex-end", margin:"10px auto auto auto"}} onClick={handleClickOpen}>
+      <Button variant="contained" color="primary">
+           <p> Приказна </p>
+        </Button>
+        </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="ui card" style={{width:"350px", borderRadius:"30px"}}>
+   <Image src={Primer7} style={{borderRadius:"0px"}}/>
+  <div class="content">
+    <h3> Цутика Лазаревска </h3>
     <div class="meta">
     <i class="users icon"></i>
       <span class="date">Член на Наша Тезга</span>

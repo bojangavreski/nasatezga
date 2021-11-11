@@ -36,7 +36,6 @@ function ProductForm(props) {
 
   const useStyles = makeStyles((theme) => ({
     paper: {
-
       display: "flex",
       flexDirection: "column",
       alignItems: "center",

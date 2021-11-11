@@ -18,11 +18,11 @@ import ImeLogo from '../Images/ime.jpg'
 import RuralLogo from '../Images/rural.png'
 import DonatorskiLogo from '../Images/donatorski.png'
 import GizLogo from '../Images/giz.png'
-import LandingImage from "../Images/LandingImage.jpg"
-import ToBlog from "../Images/ToBlog.jpg"
+import LandingImage from "../Images/z31.jpg"
+import ToBlog from "../Images/z35.jpg"
 import Image from "material-ui-image";
-import ToStore from "../Images/ToStore.jpg"
-import ToAbout from "../Images/ToAbout.jpg"
+import ToStore from "../Images/z39.jpg"
+import ToAbout from "../Images/z40.jpg"
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -71,17 +71,17 @@ function App() {
   const isMobile = useMediaQuery({maxWidth:DeviceSize.mobile})
   return (
     <div>
-      {!isMobile? <Image src={LandingImage} style={{paddingTop:"700px"}}/> : <Image src={LandingImage}/> }
+      {!isMobile? <Image src={LandingImage} style={{paddingTop:"650px"}}/> : <Image src={LandingImage}/> }
       <a href="/biodiv"> 
       <div style={{display:"flex",marginTop:"30px"}}>
     {!isMobile?<div style={{width: "400px",margin:"50px 0 0 250px" }}>
-    <h1 style={{marginTop:"-10px"}}> Нашите Жени </h1>
+    <h1 style={{marginTop:"-10px"}}> Нашите жени </h1>
     <Image src={ToBlog} style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
     </div>: 
 
     //MOBILE :
       <div style={{width: "80%", justifyContent:"center", margin:"auto"}}>
-        <h1 style={{marginTop:"-10px", textAlign:"center"}}> Нашите Жени </h1>
+        <h1 style={{marginTop:"-10px", textAlign:"center"}}> Нашите жени </h1>
         <p style={{textAlign:"center"}}>Прочитајте ги приказните на нашите жени, проверете го квалитетот и начинот <br/> 
     на кој тие ги одгледуваат своите производи. </p>
         <Image src={ToBlog} style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
@@ -114,11 +114,11 @@ function App() {
     <a href="/ZaNas">
     <div style={{display:"flex", marginTop:"30px", borderRadius:"170px"}}>
     {!isMobile?<div style={{width: "400px",margin:"50px 0 0 250px"}}>
-    <h1 style={{marginTop:"40px"}}> За Нас </h1>
+    <h1 style={{marginTop:"40px"}}> За нас </h1>
     <Image src={ToAbout} style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
     </div>:
       <div style={{width: "80%", justifyContent:"center", margin:"auto"}}>
-         <h1 style={{marginTop:"40px", textAlign:"center"}}> За Нас </h1>
+         <h1 style={{marginTop:"40px", textAlign:"center"}}> За нас </h1>
          <p style={{textAlign:"center"}}> Дознајте повеќе за нашата визија и мисија, кои сме ние, за што се залагаме. </p>
           <Image src={ToAbout} style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
     </div>

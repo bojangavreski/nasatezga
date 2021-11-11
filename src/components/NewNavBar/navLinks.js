@@ -55,12 +55,12 @@ export function NavLinks(props) {
           
           <LinkItem>
           <NavItem className= "nav-item-n">
-            <Link href="/biodiv">Вредните Жени</Link>
+            <Link href="/biodiv">Вредните жени</Link>
             </NavItem>
           </LinkItem>
           <LinkItem>
           <NavItem className= "nav-item-n">
-            <Link href="/ZaNas">За Нас</Link>
+            <Link href="/ZaNas">За нас</Link>
             </NavItem>
           </LinkItem>
         <LinkItem>
