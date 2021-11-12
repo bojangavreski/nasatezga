@@ -25,12 +25,6 @@ import ToStore from "../Images/z39.jpg"
 import ToAbout from "../Images/z40.jpg"
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
-    backgroundColor: "#fff"
-  },
-  hero: {
-   width:"50%"
-  },
   card: {
     maxWidth: "100%",
   },
@@ -45,33 +39,18 @@ const useStyles = makeStyles((theme) => ({
   author: {
     display: "flex"
   },
-  paginationContainer: {
-    display: "flex",
-    justifyContent: "center"
-  },
-  spanText:{
-    display:"flex",
-    justifyContent:"center",
-    color: "#08fc39",
-    fontWeight: "700"
-  },
-  boxText:{
-    fontWeight:"700",
-    justifyContent: 'center',
-    display:"flex"
-  },
-  paragraphText:{
-    fontSize : "30px",
-    fontWeight: "600"
-  }
+
 }));
 
 function App() {
   const classes = useStyles();
   const isMobile = useMediaQuery({maxWidth:DeviceSize.mobile})
   return (
+    <>
+
+    {!isMobile? <Image src={LandingImage} style={{paddingTop:"1000px"}} /> : <Image src={LandingImage}/> }
     <div>
-      {!isMobile? <Image src={LandingImage} style={{paddingTop:"700px"}}/> : <Image src={LandingImage}/> }
+
       <a href="/biodiv"> 
       <div style={{display:"flex",marginTop:"30px"}}>
     {!isMobile?<div style={{width:"500px",margin:"50px 0 0 100px" }}>
@@ -323,6 +302,7 @@ function App() {
         </Grid>
       </Container>
     </div>
+    </>
   );
 }
 
