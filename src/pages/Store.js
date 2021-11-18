@@ -9,10 +9,6 @@ import PostCard from "../components/PostCard";
 import SortList from "../components/SortList";
 import "../App.css";
 import SingleProduct from './SingleProduct';
-
-
-
-
 const Store = () => {
    const [dialog,setDialog] =useState(false);
    const [region,setRegion] = useState(0);
@@ -67,6 +63,7 @@ const Store = () => {
       <SortList callback={sortProducts} className="sort-list-store"/>
       <Grid className={gridClass}>
       {!loading && data ? data.getProducts.filter(product =>{
+        console.log (data)
         if(!region){
         return categories[product.category] === true
         }else if(product.region!=null && region){

@@ -4,19 +4,28 @@ import { useMediaQuery } from 'react-responsive';
 import StoryImage from "./Images/StoryImage.png"
 import Image from "material-ui-image";
 import { Button } from '@material-ui/core';
-import { Dialog } from '@material-ui/core';
-import { DialogActions } from '@material-ui/core';
-import { DialogContent } from '@material-ui/core';
-import { DialogContentText } from '@material-ui/core';
-import { DialogTitle } from '@material-ui/core';
 import { Slide } from '@material-ui/core';
-import Primer1 from './Images/Primer1.jpg'
+import Primer from './Images/Primer.jpg'
 import Primer2 from './Images/Primer2.jpg'
 import Primer3 from './Images/Primer3.jpg'
 import Primer4 from './Images/Primer4.jpg'
 import Primer5 from './Images/Primer5.jpg'
 import Primer6 from './Images/Primer6.jpg'
 import Primer7 from './Images/Primer7.jpg'
+import Primer8 from './Images/Primer8.jpg'
+import Primer9 from './Images/Primer9.jpg'
+import Primer10 from './Images/Primer10.jpg'
+import Primer11 from './Images/Primer11.jpg'
+import Primer12 from './Images/Primer12.jpg'
+
+
+
+
+
+
+
+
+import Flippy, { FrontSide, BackSide } from 'react-flippy';
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -24,21 +33,14 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 function App() {
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
   const isMobile = useMediaQuery({maxWidth:DeviceSize.mobile})
 let gridStyle;
 
   if (!isMobile){
      gridStyle = {
       display:"grid",
-      gridTemplateColumns:"repeat(3, 1fr)", 
-      alignItems:"baseline"
+      gridTemplateColumns:"repeat(4, 1fr)",
+      justifyItems:"center", 
      }
   }
   else {
@@ -51,8 +53,7 @@ let gridStyle;
 }
    
     let firstGridCard;
-    if (!isMobile){ firstGridCard={marginLeft:"3px", width:"450px", borderRadius:"30px" } }
-     else{firstGridCard={width:"350px", borderRadius:"30px"}}
+    if (!isMobile){ firstGridCard={marginLeft:"3px"}}
   let otherGridCards
      if (!isMobile) {
        otherGridCards = {width:"450px", borderRadius:"30px"} 
@@ -68,142 +69,252 @@ let gridStyle;
 
 <div style={gridStyle}>
   
-<div class="ui card" style={firstGridCard}>
-   <Image src={Primer1} />
-  <div class="content">
-    <h3> Даниела Мишевска </h3>
-    <div class="meta">
-    <i class="users icon"></i>
-      <span class="date">Член на Наша Тезга</span>
-      <div style={{display:"flex", justifyContent: "flex-end", margin:"10px auto auto auto"}}>
-      <Button variant="contained" color="primary" onClick={handleClickOpen}>
-           <p> Приказна </p>
-        </Button>
-        </div>
-    </div>
-  </div>
-  </div>
-
-  <div class="ui card" style={otherGridCards}>
-  <Image src={Primer2} />
-  <div class="content">
-    <h3> Дивна Цветковска </h3>
-    <div class="meta">
-    <i class="users icon"></i>
-      <span class="date">Член на Наша Тезга</span>
-      <div style={{display:"flex", justifyContent: "flex-end", margin:"10px auto auto auto"}}>
-      <Button variant="contained" color="primary" onClick={handleClickOpen}>
-           <p> Приказна </p>
-        </Button>
-        </div>
-    </div>
-  </div>
-  </div>
-
-
-
-<div class="ui card" style={otherGridCards} >
-<Image src={Primer3}/>
-  <div class="content">
-    <h3> Добрила Даиловска </h3>
-    <div class="meta">
-    <i class="users icon"></i>
-      <span class="date">Член на Наша Тезга</span>
-      <div style={{display:"flex", justifyContent: "flex-end", margin:"10px auto auto auto"}}>
-      <Button variant="contained" color="primary" onClick={handleClickOpen}>
-           <p> Приказна </p>
-        </Button>
-        </div>
-    </div>
-  </div>
-  </div>
-
-  <div class="ui card" style={otherGridCards}>
-   <Image src={Primer4}/>
-  <div class="content">
-    <h3> Живка Ѓурчиновска </h3>
-    <div class="meta">
-    <i class="users icon"></i>
-      <span class="date">Член на Наша Тезга</span>
-      <div style={{display:"flex", justifyContent: "flex-end", margin:"10px auto auto auto"}} onClick={handleClickOpen}>
-      <Button variant="contained" color="primary">
-           <p> Приказна </p>
-        </Button>
-        </div>
-    </div>
-  </div>
-  </div>
-
-  <div class="ui card" style={firstGridCard}>
-   <Image src={Primer5}/>
-  <div class="content">
-    <h3> Лидија Јаневска </h3>
-    <div class="meta">
-    <i class="users icon"></i>
-      <span class="date">Член на Наша Тезга</span>
-      <div style={{display:"flex", justifyContent: "flex-end", margin:"10px auto auto auto"}} onClick={handleClickOpen}>
-      <Button variant="contained" color="primary">
-           <p> Приказна </p>
-        </Button>
-        </div>
-    </div>
-  </div>
-  </div>
-
-  <div class="ui card" style={otherGridCards}>
-   <Image src={Primer6}/>
-  <div class="content">
-    <h3> Славица Јаневска </h3>
-    <div class="meta">
-    <i class="users icon"></i>
-      <span class="date">Член на Наша Тезга</span>
-      <div style={{display:"flex", justifyContent: "flex-end", margin:"10px auto auto auto"}} onClick={handleClickOpen}>
-      <Button variant="contained" color="primary">
-           <p> Приказна </p>
-        </Button>
-        </div>
-    </div>
-  </div>
-  </div>
-
-  <div class="ui card" style={firstGridCard}>
-   <Image src={Primer7} style={{borderRadius:"0px"}}/>
-  <div class="content">
-    <h3> Цутика Лазаревска </h3>
-    <div class="meta">
-    <i class="users icon"></i>
-      <span class="date">Член на Наша Тезга</span>
-      <div style={{display:"flex", justifyContent: "flex-end", margin:"10px auto auto auto"}} onClick={handleClickOpen}>
-      <Button variant="contained" color="primary">
-           <p> Приказна </p>
-        </Button>
-        </div>
-    </div>
-  </div>
-  </div>
+  <div style={firstGridCard}>
+<Flippy
+    flipOnHover={false} // default false
+    flipOnClick={true} // default false
+    animationDuration = {1000}
+    flipDirection="horizontal"
+    
+    style={!isMobile?{ width:"400px", height:"500px"}: {width:"350px"}} 
+  >
+<FrontSide style={{backgroundColor:"#DF9869"}}>
+  
+       <Image src={Primer} />
+      <h3> Даниела Мишевска </h3>
+      <Button variant="contained" style={{backgroundColor:"darkgreen"}}>Приказна</Button>
+     
+    </FrontSide>
+    <BackSide
+      style={{ backgroundColor: '#DF9869'}}>
+      <span style={{textAlign:"center", color:"black", fontSize:"23px", top:"50%", left:"50%"}}>Покрај земјоделство и производство на домашна храна, клучно последниве години е производство на мед.
+           Имаме 35 кошници во недопрена природа на границата помеѓу Македонија и Србија во село Пелинце</span>
+    </BackSide>
+  </Flippy>
 
   </div>
+  <Flippy
+    flipOnHover={false} // default false
+    flipOnClick={true} // default false
+    animationDuration = {1000}
+    flipDirection="horizontal"
+    
+    style={!isMobile?{ width:"400px", height:"500px"}: {width:"350px",margin:"20px auto auto auto"}} 
+  >
+<FrontSide style={{backgroundColor:"#DF9869"}}>
+  
+       <Image src={Primer2} />
+      <h3> Дивна Цветковска</h3>
+      <Button variant="contained" style={{backgroundColor:"darkgreen"}}>Приказна</Button>
+     
+    </FrontSide>
+    <BackSide
+      style={{ backgroundColor: '#DF9869'}}>
+      <span style={{textAlign:"center", color:"black", fontSize:"23px", top:"50%", left:"50%"}}>Покрај земјоделство и производство на домашна храна, клучно последниве години е производство на мед.
+           Имаме 35 кошници во недопрена природа на границата помеѓу Македонија и Србија во село Пелинце</span>
+    </BackSide>
+  </Flippy>
+
+
+  <Flippy
+    flipOnHover={false} // default false
+    flipOnClick={true} // default false
+    animationDuration = {1000}
+    flipDirection="horizontal"
+    
+    style={!isMobile?{ width:"400px", height:"500px"}: {width:"350px",margin:"20px auto auto auto"}} 
+  >
+<FrontSide style={{backgroundColor:"#DF9869"}}>
+  
+       <Image src={Primer3} />
+      <h3> Добрила Даиловска</h3>
+      <Button variant="contained" style={{backgroundColor:"darkgreen"}}>Приказна</Button>
+     
+    </FrontSide>
+    <BackSide
+      style={{ backgroundColor: '#DF9869'}}>
+      <span style={{textAlign:"center", color:"black", fontSize:"23px", top:"50%", left:"50%"}}>Покрај земјоделство и производство на домашна храна, клучно последниве години е производство на мед.
+           Имаме 35 кошници во недопрена природа на границата помеѓу Македонија и Србија во село Пелинце</span>
+    </BackSide>
+  </Flippy>
+
+  <Flippy
+    flipOnHover={false} // default false
+    flipOnClick={true} // default false
+    animationDuration = {1000}
+    flipDirection="horizontal"
+    
+    style={!isMobile?{ width:"400px", height:"500px"}: {width:"350px",margin:"20px auto auto auto"}} 
+  >
+<FrontSide style={{backgroundColor:"#DF9869"}}>
+  
+       <Image src={Primer4} />
+      <h3> Живка Ѓурчиновска</h3>
+      <Button variant="contained" style={{backgroundColor:"darkgreen"}}>Приказна</Button>
+     
+    </FrontSide>
+    <BackSide
+      style={{ backgroundColor: '#DF9869'}}>
+      <span style={{textAlign:"center", color:"black", fontSize:"23px", top:"50%", left:"50%"}}>Покрај земјоделство и производство на домашна храна, клучно последниве години е производство на мед.
+           Имаме 35 кошници во недопрена природа на границата помеѓу Македонија и Србија во село Пелинце</span>
+    </BackSide>
+  </Flippy>
+
+<div style={firstGridCard}>
+  <Flippy
+    flipOnHover={false} // default false
+    flipOnClick={true} // default false
+    animationDuration = {1000}
+    flipDirection="horizontal"
+    
+    style={!isMobile?{ width:"400px", height:"500px",margin:"20px auto auto auto"}: {width:"350px",margin:"20px auto auto auto"}} 
+  >
+<FrontSide style={{backgroundColor:"#DF9869"}}>
+  
+       <Image src={Primer5} />
+      <h3> Лидија Јаневска </h3>
+      <Button variant="contained" style={{backgroundColor:"darkgreen"}}>Приказна</Button>
+     
+    </FrontSide>
+    <BackSide
+      style={{ backgroundColor: '#DF9869'}}>
+      <span style={{textAlign:"center", color:"black", fontSize:"23px", top:"50%", left:"50%"}}>Покрај земјоделство и производство на домашна храна, клучно последниве години е производство на мед.
+           Имаме 35 кошници во недопрена природа на границата помеѓу Македонија и Србија во село Пелинце</span>
+    </BackSide>
+  </Flippy>
+  </div>
+
+  <Flippy
+    flipOnHover={false} // default false
+    flipOnClick={true} // default false
+    animationDuration = {1000}
+    flipDirection="horizontal"
+    
+    style={!isMobile?{ width:"400px", height:"500px",margin:"20px auto auto auto"}: {width:"350px",margin:"20px auto auto auto"}} 
+  >
+<FrontSide style={{backgroundColor:"#DF9869"}}>
+  
+       <Image src={Primer6} />
+      <h3> Славица Јаневска </h3>
+      <Button variant="contained" style={{backgroundColor:"darkgreen"}}>Приказна</Button>
+     
+    </FrontSide>
+    <BackSide
+      style={{ backgroundColor: '#DF9869'}}>
+      <span style={{textAlign:"center", color:"black", fontSize:"23px", top:"50%", left:"50%"}}>Покрај земјоделство и производство на домашна храна, клучно последниве години е производство на мед.
+           Имаме 35 кошници во недопрена природа на границата помеѓу Македонија и Србија во село Пелинце</span>
+    </BackSide>
+  </Flippy>
+
+  <Flippy
+    flipOnHover={false} // default false
+    flipOnClick={true} // default false
+    animationDuration = {1000}
+    flipDirection="horizontal"
+    
+    style={!isMobile?{ width:"400px", height:"500px",margin:"20px auto auto auto"}: {width:"350px",margin:"20px auto auto auto"}} 
+  >
+<FrontSide style={{backgroundColor:"#DF9869"}}>
+  
+       <Image src={Primer7} />
+      <h3> Цутика Лазаревска </h3>
+      <Button variant="contained" style={{backgroundColor:"darkgreen"}}>Приказна</Button>
+     
+    </FrontSide>
+    <BackSide
+      style={{ backgroundColor: '#DF9869'}}>
+      <span style={{textAlign:"center", color:"black", fontSize:"23px", top:"50%", left:"50%"}}>Покрај земјоделство и производство на домашна храна, клучно последниве години е производство на мед.
+           Имаме 35 кошници во недопрена природа на границата помеѓу Македонија и Србија во село Пелинце</span>
+    </BackSide>
+  </Flippy>
+
+
+  <Flippy
+    flipOnHover={false} // default false
+    flipOnClick={true} // default false
+    animationDuration = {1000}
+    flipDirection="horizontal"
+    
+    style={!isMobile?{ width:"400px", height:"500px",margin:"20px auto auto auto"}: {width:"350px",margin:"20px auto auto auto"}}  
+  >
+<FrontSide style={{backgroundColor:"#DF9869"}}>
+  
+       <Image src={Primer8} />
+      <h3> Орнела Переска</h3>
+      <Button variant="contained" style={{backgroundColor:"darkgreen"}}>Приказна</Button>
+     
+    </FrontSide>
+    <BackSide
+      style={{ backgroundColor: '#DF9869'}}>
+    </BackSide>
+  </Flippy>
+
+
+  <Flippy
+    flipOnHover={false} // default false
+    flipOnClick={true} // default false
+    animationDuration = {1000}
+    flipDirection="horizontal"
+    
+    style={!isMobile?{ width:"400px", height:"500px",margin:"20px auto auto auto"}: {width:"350px",margin:"20px auto auto auto"}} 
+  >
+<FrontSide style={{backgroundColor:"#DF9869"}}>
+  
+       <Image src={Primer9} />
+      <h3> Ленче Чакревска </h3>
+      <Button variant="contained" style={{backgroundColor:"darkgreen"}}>Приказна</Button>
+     
+    </FrontSide>
+    <BackSide
+      style={{ backgroundColor: '#DF9869'}}>
+      
+    </BackSide>
+  </Flippy>
+
+  <Flippy
+    flipOnHover={false} // default false
+    flipOnClick={true} // default false
+    animationDuration = {1000}
+    flipDirection="horizontal"
+    
+    style={!isMobile?{ width:"400px", height:"500px",margin:"20px auto auto auto"}: {width:"350px",margin:"20px auto auto auto"}} 
+  >
+<FrontSide style={{backgroundColor:"#DF9869"}}>
+  
+       <Image src={Primer10} />
+      <h3> Емилија Пехчевска </h3>
+      <Button variant="contained" style={{backgroundColor:"darkgreen"}}>Приказна</Button>
+     
+    </FrontSide>
+    <BackSide
+      style={{ backgroundColor: '#DF9869'}}>
+      
+    </BackSide>
+  </Flippy>
+
+
+  <Flippy
+    flipOnHover={false} // default false
+    flipOnClick={true} // default false
+    animationDuration = {1000}
+    flipDirection="horizontal"
+    
+    style={!isMobile?{ width:"400px", height:"500px",margin:"20px auto auto auto"}: {width:"350px",margin:"20px auto auto auto"}} 
+  >
+<FrontSide style={{backgroundColor:"#DF9869"}}>
+  
+       <Image src={Primer12} />
+      <h3> Билјана Витанова</h3>
+      <Button variant="contained" style={{backgroundColor:"darkgreen"}}>Приказна</Button>
+     
+    </FrontSide>
+    <BackSide
+      style={{ backgroundColor: '#DF9869'}}>
+    </BackSide>
+  </Flippy>
+
 </div>
-
-<Dialog
-        open={open}
-        TransitionComponent={Transition}
-        keepMounted
-        onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
-      >
-        <DialogTitle> <h2 style={{textAlign:"center"}}> Приказната на Даниела Попеска</h2></DialogTitle>
-        <DialogContent>
-          <Image src={Primer1} style={{width:"50%", padding:"150px", display:"flex", justifyContent:"center", margin:"auto"}}/>
-          <DialogContentText id="alert-dialog-slide-description">
-          <h3 style={{textAlign:"center", margin:"20px auto auto auto"}}>Покрај земјоделство и производство на домашна храна, клучно последниве години е производство на мед.
-           Имаме 35 кошници во недопрена природа на границата помеѓу Македонија и Србија во село Пелинце-вели Даниела </h3>
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Затвори</Button>
-        </DialogActions>
-      </Dialog>
+</div>
     </>
   );
 }

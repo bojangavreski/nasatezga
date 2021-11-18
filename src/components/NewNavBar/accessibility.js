@@ -63,7 +63,6 @@ export function Accessibility(props) {
   if (!user){
   return (
     <AccessibilityContainer>
-  <a href= "/register"><RegisterButton style={{marginRight: '15px'}}>Регистрација</RegisterButton></a>
     <a href="/login"><LoginButton>Најава</LoginButton></a>
     </AccessibilityContainer>
   );

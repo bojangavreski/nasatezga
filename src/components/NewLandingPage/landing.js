@@ -1,21 +1,16 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import { DeviceSize } from '../NewNavBar/DeviceSize';
 import { useMediaQuery } from 'react-responsive';
 import CivicaLogo from '../Images/civica.png'
 import KonektLogo from '../Images/konekt.jpg'
 import ImeLogo from '../Images/ime.jpg'
-import RuralLogo from '../Images/rural.png'
+import RuralLogo from '../Images/grb.png'
 import DonatorskiLogo from '../Images/donatorski.png'
 import GizLogo from '../Images/giz.png'
 import LandingImage from "../Images/z31.jpg"
@@ -29,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "100%",
   },
   media: {
-    height: 240
+    height: 200
   },
   cardActions: {
     display: "flex",
@@ -45,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const classes = useStyles();
   const isMobile = useMediaQuery({maxWidth:DeviceSize.mobile})
+
   return (
     <>
 
@@ -55,7 +51,7 @@ function App() {
       <div style={{display:"flex",marginTop:"30px"}}>
     {!isMobile?<div style={{width:"500px",margin:"50px 0 0 100px" }}>
     <h1 style={{marginTop:"-10px"}}> Нашите жени </h1>
-    <Image src={ToBlog} style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
+    <Image src={ToBlog}/> 
     </div>
     : 
 
@@ -64,7 +60,7 @@ function App() {
         <h1 style={{marginTop:"-10px", textAlign:"center"}}> Нашите жени </h1>
         <p style={{textAlign:"center"}}>Прочитајте ги приказните на нашите жени, проверете го квалитетот и начинот <br/> 
     на кој тие ги одгледуваат своите производи. </p>
-        <Image src={ToBlog}  style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
+        <Image src={ToBlog}/> 
         </div>
         }
     {!isMobile?<h3 style={{textAlign:"center", margin:"330px 0 0 50px"}}> Прочитајте ги приказните на нашите жени, проверете го квалитетот и начинот <br/> 
@@ -76,13 +72,13 @@ function App() {
     <div style={{display:"flex", marginTop:"30px"}}>
     {!isMobile?<div style={{width:"500px",margin:"50px 0 0 100px" }}>
     <h1 style={{marginTop:"10px"}}> Продавница </h1>
-    <Image src={ToStore} style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
+    <Image src={ToStore}/> 
     </div>:
     // MOBILE :
      <div style={{width: "80%", justifyContent:"center", margin:"auto"}}>
      <h1 style={{marginTop:"40px", textAlign:"center"}}> Продавница </h1>
      <p style={{textAlign:"center"}}>  Посетете ја нашата продавница, купувајте ги најдобрите производи одгледани со љубов. </p>
-     <Image src={ToStore} style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
+     <Image src={ToStore}/> 
      </div>
     }
     {!isMobile?<h3 style={{textAlign:"center", margin:"330px 0 0 40px"}}> Посетете ја нашата продавница, купувајте ги најдобрите <br/> производи одгледани со љубов. 
@@ -95,12 +91,12 @@ function App() {
     <div style={{display:"flex", marginTop:"30px", borderRadius:"170px"}}>
     {!isMobile?<div style={{width:"500px",margin:"50px 0 0 100px" }}>
     <h1 style={{marginTop:"40px"}}> За нас </h1>
-    <Image src={ToAbout} style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
+    <Image src={ToAbout}/> 
     </div>:
       <div style={{width: "80%", justifyContent:"center", margin:"auto"}}>
          <h1 style={{marginTop:"40px", textAlign:"center"}}> За нас </h1>
          <p style={{textAlign:"center"}}> Дознајте повеќе за нашата визија и мисија, кои сме ние, за што се залагаме. </p>
-          <Image src={ToAbout} style={{ boxShadow: "0 20px 50px rgba(59, 43, 91, 0.7)"}}/> 
+          <Image src={ToAbout}/> 
     </div>
      }
     {!isMobile?<h3 style={{textAlign:"center", margin:"350px 0 0 50px"}}> Дознајте повеќе за нашата визија и мисија, кои сме ние, за што се залагаме <br/> 
@@ -108,17 +104,18 @@ function App() {
     </div>
     </a>
 
-      <Container maxWidth="lg" className={classes.blogsContainer} style={{margin:"100px auto auto auto"}}>
-        <Typography variant="h4" className={classes.blogTitle}>
+     <div style={{maxWidth:"1000px"}}>
+      <Container style={{margin:"100px auto auto auto"}}>
+        <Typography variant="h4" >
           Нашите поддржувачи
         </Typography>
 
-        <Grid container spacing={4}>
-        <Grid item xs={12} sm={6} md={4}>
-            <Card className={classes.card}>
+        <div style={!isMobile?{display:"flex", flexDirection:"row", margin:"auto"}: {display:"grid", gridTemplateColumns:"repeat(1,1fr)", justifyItems:"center", margin:"auto"}}>  
+ 
+           
               <a href="https://www.giz.de/en/worldwide/301.html" target= "blank">
-              <CardActionArea>
-                <CardMedia 
+              <CardActionArea style={{width:"250px"}}>
+                <CardMedia
                   className={classes.media}
                   image={GizLogo}
                   title="Contemplative Reptile"
@@ -132,22 +129,10 @@ function App() {
                   </Typography>
                 </CardContent>
               </CardActionArea>
-              <CardActions className={classes.cardActions}>
-                <Box className={classes.author}>
-                  <Box ml={2}></Box>
-                </Box>
-                <Box>
-                  <BookmarkBorderIcon />
-                </Box>
-              </CardActions>
               </a>
-            </Card>
-          </Grid>
-
-        <Grid item xs={12} sm={6} md={4}>
-            <Card className={classes.card}>
-              <a href="https://rural.mk" target= "blank">
-              <CardActionArea>
+            
+              <a href="https://vlada.mk" target= "blank">
+              <CardActionArea style={{width:"250px"}}>
                 <CardMedia 
                   className={classes.media}
                   image={RuralLogo}
@@ -155,32 +140,17 @@ function App() {
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
-                    Рурална Коалиција
+                   Влада на Република Македонија
                   </Typography>
                   <Typography variant="body2" color="textSecondary" component="p">
-                   Рурална коалиција се стреми кон подобрување на квалитетот на живот во руралните средини; едукација, организација и заедничко делување на земјоделците.
+                   Помогнати од владата на Република Македонија
                   </Typography>
                 </CardContent>
               </CardActionArea>
-              <CardActions className={classes.cardActions}>
-                <Box className={classes.author}>
-                  <Box ml={2}></Box>
-                </Box>
-                <Box>
-                  <BookmarkBorderIcon />
-                </Box>
-              </CardActions>
               </a>
-            </Card>
-          </Grid>
 
-
-          
-
-          <Grid item xs={12} sm={6} md={4}>
-            <Card className={classes.card}>
               <a href="/#">
-              <CardActionArea>
+              <CardActionArea style={{width:"300px"}}>
                 <CardMedia
                   className={classes.media}
                   image={DonatorskiLogo}
@@ -196,21 +166,9 @@ function App() {
                 </CardContent>
               </CardActionArea>
               </a>
-              <CardActions className={classes.cardActions}>
-                <Box className={classes.author}>
-                  <Box ml={2}></Box>
-                </Box>
-                <Box>
-                  <BookmarkBorderIcon />
-                </Box>
-              </CardActions>
-            </Card>
-          </Grid>
 
-          <Grid item xs={12} sm={6} md={4}>
-            <Card className={classes.card}>
               <a href="https://ime.org.mk" target="blank">
-              <CardActionArea>
+              <CardActionArea style={{width:"300px"}}  >
                 <CardMedia
                   className={classes.media}
                   image={ImeLogo}
@@ -226,21 +184,9 @@ function App() {
                 </CardContent>
               </CardActionArea>
               </a>
-              <CardActions className={classes.cardActions}>
-                <Box className={classes.author}>
-                  <Box ml={2}></Box>
-                </Box>
-                <Box>
-                  <BookmarkBorderIcon />
-                </Box>
-              </CardActions>
-            </Card>
-          </Grid>
-
-          <Grid item xs={12} sm={6} md={4}>
-            <Card className={classes.card}>
+        
               <a href= "https://civicamobilitas.mk" target="blank">
-              <CardActionArea>
+              <CardActionArea style={{width:"250px"}}>
                 <CardMedia
                   className={classes.media}
                   image={CivicaLogo}
@@ -257,21 +203,10 @@ function App() {
                 </CardContent>
               </CardActionArea>
               </a>
-              <CardActions className={classes.cardActions}>
-                <Box className={classes.author}>
-                  <Box ml={2}></Box>
-                </Box>
-                <Box>
-                  <BookmarkBorderIcon />
-                </Box>
-              </CardActions>
-            </Card>
-          </Grid>
+   
 
-          <Grid item xs={12} sm={6} md={4}>
-            <Card className={classes.card}>
               <a href="http://konekt.org.mk" target="blank">
-              <CardActionArea>
+              <CardActionArea style={{width:"300px"}}>
                 <CardMedia
                   className={classes.media}
                   image={KonektLogo}
@@ -288,19 +223,11 @@ function App() {
                 </CardContent>
               </CardActionArea>
               </a>
-              <CardActions className={classes.cardActions}>
-                <Box className={classes.author}>
-                  <Box ml={2}></Box>
-                </Box>
-                <Box>
-                  <BookmarkBorderIcon />
-                </Box>
-              </CardActions>
-            </Card>
             
-          </Grid>
-        </Grid>
+       
+          </div>
       </Container>
+    </div>
     </div>
     </>
   );

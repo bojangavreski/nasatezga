@@ -15,7 +15,6 @@ import Forgot from './pages/ForgotPassword';
 import './App.css';
 import Subscription from './pages/Subscription';
 import ZaNas from './pages/ZaNas'
-import Footer from "../src/components/NewLandingPage/Footer"
 
 function App() {
 	return (
@@ -41,8 +40,7 @@ function App() {
 			</Router>
 			
 		</AuthProvider>
-		
-		{/* //<Footer/> */}
+	
 		
 		</>
 	);
