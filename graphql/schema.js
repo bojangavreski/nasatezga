@@ -31,6 +31,12 @@ type Region{
     regionName: String!
     regionNameMK:String!
 }
+type Farmer{
+    id:String!
+    nameAndSurname:String!
+    image:String!
+    description:String!
+}
 type City { 
     cityId:ID!
     name: String!
@@ -59,6 +65,7 @@ type Query{
     getCity(cityId:ID!):City!
     getCities:[City]
     getCitiesByRegion(regionId:ID!):[City]!
+    getAllFarmers:[Farmer]!
 }
 type Mutation{
     register(registerInput:RegisterInput!):User!
@@ -69,5 +76,6 @@ type Mutation{
     changePassword(password:String!,confirmPassword:String!,email:String!):String!
     enterCity(cityId:ID!,name:String!,regionId:ID!,nameMK:String!):String!
     enterRegion(regionId:ID!,regionName: String!,regionNameMK:String!):String!
+    enterFarmer(nameAndSurname:String!,image:String!,description:String!):Farmer!
 }
 `
