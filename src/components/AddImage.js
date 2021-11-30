@@ -3,30 +3,28 @@ import { makeStyles } from '@material-ui/styles';
 import { IconButton } from "@material-ui/core";
 import { PhotoCamera } from "@material-ui/icons";
 
-const postImage = (img) => {
-  const returnValue = {};
+const postImage = async (img) => {
+  let returnValue = {};
   const formData = new FormData();
   const header = new Headers();
   header.append("Authorization", "Client-ID 546c25a59c58ad7");
   formData.append("image", img);
-  fetch("https://api.imgur.com/3/image", {
+  await fetch("https://api.imgur.com/3/image", {
     method: "POST",
     headers: header,
     body: formData,
-  })
-    .then((data) => data.json())
-    .then((data) => (returnValue = data))
-    .catch((err) => console.log(err));
-
+  }).then(data => data.json())
+    .then(data => {
+      returnValue = data}).catch((err) => console.log(err));
   return returnValue;
 };
 function AddImage(props) {
   const [image, setImage] = useState();
-  const updateImage = (event) => {
+  const updateImage = async (event) => {
     event.preventDefault();
-    console.log(event.target.files[0]);
     const file = event.target.files[0];
-    setImage(postImage(file).link);
+    let postedImage = await postImage(file);
+    props.props(postedImage.data.link)
   };
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -52,7 +50,6 @@ function AddImage(props) {
           color="primary"
           aria-label="upload picture"
           component="span"
-          onChange={updateImage}
         >
           <PhotoCamera />
         </IconButton>
