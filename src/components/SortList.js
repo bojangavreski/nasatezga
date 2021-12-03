@@ -60,7 +60,7 @@ if(!formState){
       }
       label={cat.catMK}
     />)
-  })}
+  })} 
       <h4>Регион</h4>
           <Select
           className="select-field"
