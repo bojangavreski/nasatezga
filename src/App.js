@@ -6,7 +6,7 @@ import { AuthProvider } from './context/auth';
 import Store from './pages/Store';
 import { NewNav } from './components/NewNavBar/NewNav';
 import Home from './pages/Home';
-import SingleProduct from './pages/SingleProduct';
+import OrderProductDialog from './pages/OrderProductDialog';
 import Profile from './pages/Profile';
 import Login1 from './pages/Login1';
 import Register1 from './pages/Register1';
@@ -32,7 +32,7 @@ function App() {
 					<Route exact path="/store" component={Store} />
 					<AuthRoute exact path="/login" component={Login1} />
 					<AuthRoute exact path="/register" component={Register1} />
-					<Route exact path="/products/:pId" component={SingleProduct} />
+					<Route exact path="/products/:pId" component={OrderProductDialog} />
 					<Route exact path="/profile/:uId" component={Profile} />
 					<Route exact path="/forgot" component={Forgot}/>
 				</Container>

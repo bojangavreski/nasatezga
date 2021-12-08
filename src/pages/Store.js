@@ -8,7 +8,7 @@ import FilterDialog from '../components/FilterDialog';
 import PostCard from "../components/PostCard";
 import SortList from "../components/SortList";
 import "../App.css";
-import SingleProduct from './SingleProduct';
+import OrderProductDialog from './OrderProductDialog';
 const Store = () => {
    const [dialog,setDialog] =useState(false);
    const [region,setRegion] = useState(0);
@@ -58,7 +58,7 @@ const Store = () => {
         <FilterListIcon fontSize="large"></FilterListIcon>
       </IconButton >
       <FilterDialog props={closeFilterDialog} filterDialog={filterDialog} callback={sortProducts}/>
-      <SingleProduct dialog={dialog} trigger={trigger}/>
+      <OrderProductDialog dialog={dialog} trigger={trigger}/>
       <div className='wrapper'>
       <SortList callback={sortProducts} className="sort-list-store"/>
       <Grid className={gridClass}>
