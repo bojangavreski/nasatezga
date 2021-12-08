@@ -12,7 +12,15 @@ import LinkOutlinedIcon from '@material-ui/icons/LinkOutlined';
 import RuralLogo from './Images/rural_zanas.png'
 import ZaNasLogo from './Images/z37.jpg'
 import { Image } from 'semantic-ui-react';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';const useStyles = makeStyles((theme) => ({
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+
+const useStyles = makeStyles((theme) => ({
+  typography: {
+    
+  },
+  typographySmall: {
+   
+  },
   appBar: {
     backgroundColor: "#fff"
   },
@@ -60,7 +68,11 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';const useStyles =
     justifyContent: "center"
   },
   spanText:{
-    fontSize:"30px"
+    fontSize:"30px",
+    fontFamily: [
+      'Montserrat',
+      'sans-serif'
+    ].join(',')
   },
   boxText:{
     fontWeight:"700",
@@ -70,7 +82,11 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';const useStyles =
   },
   paragraphText:{
     fontSize : "20px",
-    fontWeight: "500"
+    fontWeight: "500",
+    fontFamily: [
+      'Merriweather',
+      'serif'
+    ].join(',')
   }
 }));
 

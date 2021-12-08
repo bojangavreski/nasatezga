@@ -2,13 +2,9 @@
     width: 100%;
 }
 .product-card{
-    margin: 5px;
-    height: 400px;
-    width: 250px;
-}
-.product-card-footer{
-    display: flex;
-    flex-direction: row;
+    margin: 10px;
+    height:auto;
+    width: 300px;
 }
 .product-card:hover{
     border-top: 3px rgba(152, 251, 152, 0.829) solid;
@@ -24,17 +20,20 @@
 .seller-name > h4{
     cursor: pointer;
 }
+
 .product-description{
-    height: 70px;
+    width:auto;
+    height:auto;
 }
 .product-description > p{
     overflow: hidden;
 }
 .order-button{
-    max-width: 75px;
-    margin-left: 50px;
-    margin-top: 40px;
+   display:"flex";
+   justify-content:"flex-end";
+   margin:auto;
 }
+
 .MuiButton-containedPrimary{
     font-weight: 700;
     color:white !important;

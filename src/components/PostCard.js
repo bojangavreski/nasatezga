@@ -33,12 +33,21 @@ const printDate= (date)=>{
   return `${d.getDate()}-${MONTHS[d.getMonth()]}-${d.getFullYear()}`;
 }
 const useStyles = makeStyles((theme) => ({
+  typography: {
+    fontFamily: [
+      'Montserrat',
+      'sans-serif'
+    ].join(','),
+    margin:" 10px",
+    height: "auto",
+    width:"300px"
+  },
   root: {
     maxWidth: 345,
   },
   media: {
     height: 0,
-    paddingTop: "56.25%", // 16:9
+    paddingTop: "100%", // 16:9
   },
    expand: {
      transform: "rotate(0deg)",
@@ -79,7 +88,7 @@ function PostCard(props) {
   });
 
   return (
-    <Card className="product-card">
+    <Card className={classes.typography}>
       <CardHeader title={props.product.title} subheader={printDate(props.product.createdAt)} />
       <CardMedia className={classes.media} image={props.product.image} />
       <CardContent>
@@ -93,13 +102,12 @@ function PostCard(props) {
         <div className="product-card-footer">
         <div className="seller-name">
           <h4 onClick={() => alert("Наскоро ќе ја отвара страната на продавачот")}>
-            <PersonIcon/>
-              {user.name}
+           
           </h4>
         </div>
-        <div className="order-button">
+        <div style={{margin:"auto auto auto 180px"}}> 
         <ThemeProvider theme={theme}>
-        <Button variant="contained" color="primary" onClick={() => props.trigger()}>
+        <Button className="button-mui" variant="contained" style={{paddingBottom:"0px"}}color="primary" onClick={() => props.trigger()}>
            <p> Нарачај </p>
         </Button>
       </ThemeProvider>

@@ -63,7 +63,7 @@ export function Accessibility(props) {
   if (!user){
   return (
     <AccessibilityContainer>
-    <a href="/login"><LoginButton>Најава</LoginButton></a>
+
     </AccessibilityContainer>
   );
   }else {

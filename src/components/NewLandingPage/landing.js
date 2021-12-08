@@ -20,6 +20,12 @@ import ToStore from "../Images/z39.jpg"
 import ToAbout from "../Images/z40.jpg"
 
 const useStyles = makeStyles((theme) => ({
+  typography: {
+    fontFamily: [
+      'Montserrat',
+      'sans-serif'
+    ].join(',')
+  },
   card: {
     maxWidth: "100%",
   },
@@ -50,20 +56,20 @@ function App() {
       <a href="/biodiv"> 
       <div style={{display:"flex",marginTop:"30px"}}>
     {!isMobile?<div style={{width:"500px",margin:"50px 0 0 100px" }}>
-    <h1 style={{marginTop:"-10px"}}> Нашите жени </h1>
+    <h1 className={classes.typography} style={{marginTop:"-10px"}}> Нашите жени </h1>
     <Image src={ToBlog}/> 
     </div>
     : 
 
     //MOBILE :
       <div style={{width: "80%", justifyContent:"center", margin:"auto"}}>
-        <h1 style={{marginTop:"-10px", textAlign:"center"}}> Нашите жени </h1>
-        <p style={{textAlign:"center"}}>Прочитајте ги приказните на нашите жени, проверете го квалитетот и начинот <br/> 
+        <h1 className={classes.typography} style={{marginTop:"-10px", textAlign:"center"}}> Нашите жени </h1>
+        <p className={classes.typography}  style={{textAlign:"center"}}>Прочитајте ги приказните на нашите жени, проверете го квалитетот и начинот <br/> 
     на кој тие ги одгледуваат своите производи. </p>
         <Image src={ToBlog}/> 
         </div>
         }
-    {!isMobile?<h3 style={{textAlign:"center", margin:"330px 0 0 50px"}}> Прочитајте ги приказните на нашите жени, проверете го квалитетот и начинот <br/> 
+    {!isMobile?<h3 className={classes.typography} style={{textAlign:"center", margin:"330px 0 0 50px"}}> Прочитајте ги приказните на нашите жени, проверете го квалитетот и начинот <br/> 
     на кој тие ги одгледуваат своите производи, стапете во контакт во секој момент.</h3>: null}
     </div>
     </a>
@@ -71,17 +77,17 @@ function App() {
     <a href="/store">
     <div style={{display:"flex", marginTop:"30px"}}>
     {!isMobile?<div style={{width:"500px",margin:"50px 0 0 100px" }}>
-    <h1 style={{marginTop:"10px"}}> Продавница </h1>
+    <h1 className={classes.typography} style={{marginTop:"10px"}}> Продавница </h1>
     <Image src={ToStore}/> 
     </div>:
     // MOBILE :
      <div style={{width: "80%", justifyContent:"center", margin:"auto"}}>
-     <h1 style={{marginTop:"40px", textAlign:"center"}}> Продавница </h1>
-     <p style={{textAlign:"center"}}>  Посетете ја нашата продавница, купувајте ги најдобрите производи одгледани со љубов. </p>
+     <h1 className={classes.typography} style={{marginTop:"40px", textAlign:"center"}}> Продавница </h1>
+     <p className={classes.typography} style={{textAlign:"center"}}>  Посетете ја нашата продавница, купувајте ги најдобрите производи одгледани со љубов. </p>
      <Image src={ToStore}/> 
      </div>
     }
-    {!isMobile?<h3 style={{textAlign:"center", margin:"330px 0 0 40px"}}> Посетете ја нашата продавница, купувајте ги најдобрите <br/> производи одгледани со љубов. 
+    {!isMobile?<h3 className={classes.typography} style={{textAlign:"center", margin:"330px 0 0 40px"}}> Посетете ја нашата продавница, купувајте ги најдобрите <br/> производи одгледани со љубов. 
     Производите чекаат на вас.<br/>  Со само неколку кликања, најлесно до сега ќе може да купите посакуван поризвод.
     </h3>: null}
     </div>
@@ -90,16 +96,16 @@ function App() {
     <a href="/ZaNas">
     <div style={{display:"flex", marginTop:"30px", borderRadius:"170px"}}>
     {!isMobile?<div style={{width:"500px",margin:"50px 0 0 100px" }}>
-    <h1 style={{marginTop:"40px"}}> За нас </h1>
+    <h1 className={classes.typography} style={{marginTop:"40px"}}> За нас </h1>
     <Image src={ToAbout}/> 
     </div>:
       <div style={{width: "80%", justifyContent:"center", margin:"auto"}}>
-         <h1 style={{marginTop:"40px", textAlign:"center"}}> За нас </h1>
-         <p style={{textAlign:"center"}}> Дознајте повеќе за нашата визија и мисија, кои сме ние, за што се залагаме. </p>
+         <h1 className={classes.typography} style={{marginTop:"40px", textAlign:"center"}}> За нас </h1>
+         <p className={classes.typography} style={{textAlign:"center"}}> Дознајте повеќе за нашата визија и мисија, кои сме ние, за што се залагаме. </p>
           <Image src={ToAbout}/> 
     </div>
      }
-    {!isMobile?<h3 style={{textAlign:"center", margin:"350px 0 0 50px"}}> Дознајте повеќе за нашата визија и мисија, кои сме ние, за што се залагаме <br/> 
+    {!isMobile?<h3 className={classes.typography} style={{textAlign:"center", margin:"350px 0 0 50px"}}> Дознајте повеќе за нашата визија и мисија, кои сме ние, за што се залагаме <br/> 
     и како им помагаме на земјодлеците со користење на нашата платформа.</h3> : null}
     </div>
     </a>

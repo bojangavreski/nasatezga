@@ -25,8 +25,12 @@ const CATEGORIES = [
   },
   {
     cat: "Domashni",
-    catMK: "Домашни преработки",
+    catMK: "Домашни изработки",
   },
+  {
+  cat: "Racni",
+  catMK: "Рачни изработки",
+  }
 ];
 
 module.exports=CATEGORIES;

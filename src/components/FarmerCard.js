@@ -1,21 +1,33 @@
 import React from 'react';
 import { DeviceSize } from './NewNavBar/DeviceSize';
 import { useMediaQuery } from 'react-responsive';
-import { AuthContext } from '../context/auth';
-import StoryImage from "./Images/StoryImage.png"
 import Image from "material-ui-image";
 import { Button } from '@material-ui/core';
-import FarmerForm from './FarmerForm';
-import { Slide } from '@material-ui/core';
 import gql from "graphql-tag";
-import Primer from './Images/Primer.jpg'
-import Flippy, { FrontSide, BackSide } from 'react-flippy';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { makeStyles } from '@material-ui/styles';
+import { typography } from '@material-ui/system';
+
 const FarmerCard = ({farmer}) => {
+  const useStyles = makeStyles((theme) => ({
+    typography: {
+      fontFamily: [
+        'Montserrat',
+        'sans-serif'
+      ].join(',')
+    },
+    typographySmall: {
+      fontFamily: [
+        'Merriweather',
+        'serif'
+      ].join(',')
+    }
+  }))
+  const classes = useStyles();
 
     const isMobile = useMediaQuery({maxWidth:DeviceSize.mobile})
     console.log(farmer)
@@ -29,18 +41,12 @@ const FarmerCard = ({farmer}) => {
     setOpen(false);
   };
 
-  let firstGridCard;
-  if (!isMobile){ firstGridCard={marginLeft:"3px"}}
-let otherGridCards
-   if (!isMobile) {
-     otherGridCards = {width:"450px", borderRadius:"30px", marginTop:"30px"} 
-   }else {otherGridCards = {width:"350px", borderRadius:"30px"}};
     return (
   <>
   <div class="ui card" style={{width:"400px",  marginTop:"70px"}}>
   <Image src={farmer.image} />
   <div class="content">
-    <h3> {farmer.nameAndSurname} </h3>
+    <h3 className={classes.typography}> {farmer.nameAndSurname} </h3>
     <div class="meta">
     <i class="users icon"></i>
       <span class="date">Член на Наша Тезга</span>
@@ -59,11 +65,12 @@ let otherGridCards
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle> <h2 style={{textAlign:"center"}}> Приказната на: {farmer.nameAndSurname}</h2></DialogTitle>
+        <DialogTitle> <h2 className={classes.typography} style={{textAlign:"center", color:"#383838"}}> Приказната на: {farmer.nameAndSurname}</h2></DialogTitle>
         <DialogContent>
+          <h4 className={classes.typography} style={{textAlign:"center", color:"#383838"}}> Доколку сакате да ги погледнете производите од {farmer.nameAndSurname}, пребарајте ги со внес "{farmer.nameAndSurname}" во нашата <a href="/store" target="blank"> Продавница </a> </h4>
           <Image src={farmer.image}/>
           <DialogContentText id="alert-dialog-slide-description">
-          <h3 style={{textAlign:"center", margin:"20px auto auto auto",color:"black", fontSize:"23px",}}>{farmer.description}</h3>
+          <h3 className={classes.typographySmall} style={{textAlign:"center" , margin:"20px auto auto auto",color:"#383838", fontSize:"20px",}}>{farmer.description}</h3>
           </DialogContentText>
         </DialogContent>
         <DialogActions>

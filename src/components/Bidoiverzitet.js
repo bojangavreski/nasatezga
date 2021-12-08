@@ -15,13 +15,8 @@ import Primer4 from './Images/Primer4.jpg'
 import Primer5 from './Images/Primer5.jpg'
 import Primer6 from './Images/Primer6.jpg'
 import Primer7 from './Images/Primer7.jpg'
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import {useMutation,useQuery} from '@apollo/react-hooks'
-
+import { makeStyles } from '@material-ui/styles';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 import FarmerCard from './FarmerCard';
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -30,6 +25,23 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 
 function App() {
+
+  const useStyles = makeStyles((theme) => ({
+    typography: {
+      fontFamily: [
+        'Montserrat',
+        'sans-serif'
+      ].join(',')
+    },
+    typographySmall: {
+      fontFamily: [
+        'Merriweather',
+        'serif'
+      ].join(',')
+    }
+  }))
+  const classes = useStyles();
+
   const { user } = useContext(AuthContext);
   const [open, setOpen] = React.useState(false);
   const [userEmail, setUserEmail] = React.useState("");
@@ -78,7 +90,7 @@ let gridStyle;
       
      {!isMobile? <Image src={StoryImage} style={{paddingTop:"700px"}}/> : <Image src={StoryImage}/> }
        
-        <h1 style={{textAlign:"center"}}> Приказни на жените кои се дел од Наша Тезга </h1>
+        <h1 className={classes.typography} style={{textAlign:"center"}}> Приказни на жените кои се дел од Наша Тезга </h1>
 
 <div style={gridStyle}>
   
@@ -95,7 +107,7 @@ let gridStyle;
    <div class="ui card" style={firstGridCard}>
   <Image src={Primer} />
   <div class="content">
-    <h3> Даниела Мишевска </h3>
+    <h3 className={classes.typography}> Даниела Мишевска </h3>
     <div class="meta">
     <i class="users icon"></i>
       <span class="date">Член на Наша Тезга</span>
@@ -126,7 +138,7 @@ let gridStyle;
 <div class="ui card" style={{width:"450px"}}>
   <Image src={Primer2} />
   <div class="content">
-    <h3> Дивна Цветковска </h3>
+    <h3 className={classes.typography}> Дивна Цветковска </h3>
     <div class="meta">
     <i class="users icon"></i>
       <span class="date">Член на Наша Тезга</span>
@@ -157,7 +169,7 @@ let gridStyle;
 <div class="ui card" style={{width:"450px"}}>
   <Image src={Primer3} />
   <div class="content">
-    <h3> Добрила Даиловска </h3>
+    <h3 className={classes.typography}> Добрила Даиловска </h3>
     <div class="meta">
     <i class="users icon"></i>
       <span class="date">Член на Наша Тезга</span>
@@ -187,7 +199,7 @@ let gridStyle;
 <div class="ui card" style={{width:"450px", marginTop:"50px"}}>
   <Image src={Primer4} />
   <div class="content">
-    <h3> Живка Ѓурчиновска </h3>
+    <h3 className={classes.typography}> Живка Ѓурчиновска </h3>
     <div class="meta">
     <i class="users icon"></i>
       <span class="date">Член на Наша Тезга</span>
@@ -219,7 +231,7 @@ let gridStyle;
 <div class="ui card" style={{width:"450px", marginTop:"50px"}}>
   <Image src={Primer5} />
   <div class="content">
-    <h3> Лидија Јаневска</h3>
+    <h3 className={classes.typography}> Лидија Јаневска</h3>
     <div class="meta">
     <i class="users icon"></i>
       <span class="date">Член на Наша Тезга</span>
@@ -250,7 +262,7 @@ let gridStyle;
 <div class="ui card"style={{width:"450px", marginTop:"50px"}}>
   <Image src={Primer6} />
   <div class="content">
-    <h3> Славица Јаневска </h3>
+    <h3 className={classes.typography}> Славица Јаневска </h3>
     <div class="meta">
     <i class="users icon"></i>
       <span class="date">Член на Наша Тезга</span>
@@ -281,7 +293,7 @@ let gridStyle;
 <div class="ui card" style={{width:"450px", marginTop:"50px"}}>
   <Image src={Primer7} />
   <div class="content">
-    <h3> Цутика Лазаревска </h3>
+    <h3 className={classes.typography}> Цутика Лазаревска </h3>
     <div class="meta">
     <i class="users icon"></i>
       <span class="date">Член на Наша Тезга</span>
