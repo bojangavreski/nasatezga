@@ -8,12 +8,16 @@ type Product{
     title:String!
     description:String!
     username:String!
-    location:String!
+    location:String
     category:String!
     telephone:String!
     creator:ID!
     region:String
     quantity:Int!
+    producer:String!
+    price:Int!
+    baseQuantity:String!
+    unit:String!
 }
 type User{
     id:ID!
@@ -52,7 +56,17 @@ input RegisterInput{
     password:String!
     confirmPassword:String!
 }
-
+input BatchProductInput {
+    title:String!
+    description:String!
+    image:String!
+    category:String!
+    region:String!
+    producer:String!
+    price:Int!
+    baseQuantity:String!
+    unit:String!
+  }
 type Query{
     getProducts:[Product]
     getProduct(pId:ID!):Product!
@@ -77,5 +91,7 @@ type Mutation{
     enterCity(cityId:ID!,name:String!,regionId:ID!,nameMK:String!):String!
     enterRegion(regionId:ID!,regionName: String!,regionNameMK:String!):String!
     enterFarmer(nameAndSurname:String!,image:String!,description:String!):Farmer!
+    enterBatchProducts(productsList:[BatchProductInput!]!):String
+    sendOrderEmail(nameAndSurname:String!,address:String!,telephone:String!,email:String,description:String!):String
 }
 `

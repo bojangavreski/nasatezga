@@ -14,7 +14,12 @@ const productSchema = new Schema({
     user:{
         type:Schema.Types.ObjectId,
         ref: "users"
-    }
+    },
+    producer:String,
+    producerPhone:String,
+    price:Number,
+    baseQuantity:String,
+    unit:String
 })
 
 module.exports = model("Product",productSchema)
