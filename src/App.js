@@ -30,6 +30,7 @@ function App() {
 				<Container>
 					<Route exact path="/subscription" component={Subscription} />
 					<Route exact path="/store" component={Store} />
+					<Route exact path="/store/:searchTerm" component={Store} />
 					<AuthRoute exact path="/login" component={Login1} />
 					<AuthRoute exact path="/register" component={Register1} />
 					<Route exact path="/products/:pId" component={OrderProductDialog} />

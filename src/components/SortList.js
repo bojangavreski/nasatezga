@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import {FormControlLabel,Checkbox,FormControl, Button,FormGroup,Select,InputLabel,MenuItem} from '@material-ui/core';
+import {FormControlLabel,Checkbox,FormControl, Button,FormGroup,Select,TextField,MenuItem} from '@material-ui/core';
 import "../App.css";
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
@@ -9,6 +9,7 @@ const CATEGORIES =require('../util/categories');
 const SortList = (props) => {
   const [formState,setFormState] = useState(false);
   const [regionState,setRegionState] = useState(0);
+  const [search,setSearch] = useState('');
   const [regions,setRegions] = useState([]);
 
   const {loading,data} = useQuery(FETCH_REGIONS);
@@ -40,9 +41,17 @@ if(!formState){
   const onRegionChange = (event) =>{
       setRegionState(event.target.value);
   }
+  const searchByName = async (event) => {
+       setSearch(event.target.value);
+  }
  return (
   <div className="filter">
     <FormControl>
+    <TextField
+          id="searchbox"
+          placeholder="Пребарај"
+          onChange={searchByName}
+        />
       <h4>Категории</h4>
       <FormGroup>
   {CATEGORIES.map(cat => {
@@ -79,7 +88,7 @@ if(!formState){
           </Select>
     <Button variant="contained" color="primary" className="sort-button" onClick={
       () => { 
-        props.callback(formState,regionState);
+        props.callback(formState,regionState,search);
         if(props.closeDialog){
           props.closeDialog();
         }    

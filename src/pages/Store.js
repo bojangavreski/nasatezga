@@ -9,15 +9,17 @@ import PostCard from "../components/PostCard";
 import SortList from "../components/SortList";
 import "../App.css";
 import OrderProductDialog from './OrderProductDialog';
-const Store = () => {
+const Store = (props) => {
    const [dialog,setDialog] =useState(false);
    const [region,setRegion] = useState(0);
-   
+   const [searchBoxContent,setSearchBoxContent] = useState('');
+
    const [filterDialog,setFilterDialog] = useState(false);
    const [categories, setCategories] = useState({});
-   const sortProducts = (filter,region) => {
+   const sortProducts = (filter,region,search) => {
     var isEmpty=true;
-    var fullState = {}
+    var fullState = {};
+    setSearchBoxContent(search);
     setRegion(region);
      for(const [key,value] of Object.entries(filter)){
        fullState[key]=true;
@@ -42,7 +44,12 @@ const Store = () => {
     setFilterDialog(false);
   }
   useEffect(()=>{
-  },[dialog]);
+    if(props.match.params.searchTerm === ''){
+    setSearchBoxContent('');
+    }else{
+      setSearchBoxContent(props.match.params.searchTerm);
+    }
+  },[]);
     var gridClass = 'product-list';
     const { loading, data } = useQuery(FETCH_PRODUCTS_QUERY,{
       onError(err){
@@ -57,23 +64,27 @@ const Store = () => {
       <IconButton color="primary" aria-label="upload picture" component="span" className="filter-icon" onClick={() => openFilterDialog()}>
         <FilterListIcon fontSize="large"></FilterListIcon>
       </IconButton >
-      <FilterDialog props={closeFilterDialog} filterDialog={filterDialog} callback={sortProducts}/>
+      <FilterDialog props={closeFilterDialog} filterDialog={filterDialog} callback={sortProducts} searchBox={setSearchBoxContent}/>
       <OrderProductDialog dialog={dialog} trigger={trigger}/>
       <div className='wrapper'>
       <SortList callback={sortProducts} className="sort-list-store"/>
       <Grid className={gridClass}>
       {!loading && data ? data.getProducts.filter(product =>{
-        console.log (data)
         if(!region){
         return categories[product.category] === true
         }else if(product.region!=null && region){
-          return categories[product.category] === true && product.region===region;
+            return categories[product.category] === true && product.region===region;
         }else{
           return false;
         }
       }).map(
         product => {
-      return <PostCard key={product.id} product={product} trigger={trigger}/>}) : <LinearProgress className="spinner"/>}
+      if(searchBoxContent === ''){
+        return <PostCard key={product.id} product={product} trigger={trigger}/>
+      }else if(product.description.includes(searchBoxContent)){ 
+        return <PostCard key={product.id} product={product} trigger={trigger}/>
+      } 
+      }) : <LinearProgress className="spinner"/>}
       </Grid>
       </div>
       </>

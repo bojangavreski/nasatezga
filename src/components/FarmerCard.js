@@ -51,6 +51,9 @@ const FarmerCard = ({farmer}) => {
     <i class="users icon"></i>
       <span class="date">Член на Наша Тезга</span>
       <div style={{display:"flex", justifyContent: "flex-end", margin:"10px auto auto auto"}}>
+      <Button variant="contained" color="primary" href={`/store/${farmer.nameAndSurname}`}>
+           <p> Купи </p>
+        </Button>
       <Button variant="contained" color="primary" onClick={handleClickOpen}>
            <p> Приказна </p>
         </Button>
