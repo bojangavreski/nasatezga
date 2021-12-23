@@ -9,6 +9,10 @@ import PostCard from "../components/PostCard";
 import SortList from "../components/SortList";
 import "../App.css";
 import OrderProductDialog from './OrderProductDialog';
+import "../components/DetailsCard";
+import DetailsCard from '../components/DetailsCard';
+
+
 const Store = (props) => {
    const [dialog,setDialog] =useState(false);
    const [region,setRegion] = useState(0);
