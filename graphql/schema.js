@@ -3,7 +3,7 @@ const gql = require('graphql-tag');
 module.exports = gql`
 type Product{
     id:ID!
-    image:String!
+    images:[String]!
     createdAt:String!
     title:String!
     description:String!
@@ -59,7 +59,7 @@ input RegisterInput{
 input BatchProductInput {
     title:String!
     description:String!
-    image:String!
+    images:[String!]!
     category:String!
     region:String!
     producer:String!

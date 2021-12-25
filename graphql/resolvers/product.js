@@ -79,7 +79,7 @@ module.exports = {
                     description : productsList[i].description,
                     username: user.email,
                     telephone: user.telephone,
-                    image : productsList[i].image,
+                    images : productsList[i].images,
                     createdAt: new Date().toISOString(),
                     category : productsList[i].category,
                     region : productsList[i].region,

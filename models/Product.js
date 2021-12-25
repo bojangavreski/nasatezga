@@ -7,7 +7,7 @@ const productSchema = new Schema({
     createdAt:String,
     location:String,
     telephone:String,
-    image:String,
+    images:[String],
     category:String,
     creator:String,
     region:String,
