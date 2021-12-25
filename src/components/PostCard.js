@@ -146,7 +146,7 @@ function PostCard(props) {
         title={props.product.title}
         subheader={printDate(props.product.createdAt)}
       />
-      <CardMedia className={classes.media} image={props.product.image} />
+      <CardMedia className={classes.media} image={props.product.images[0]} />
       <CardContent>
         <div className="product-description">
           <p>{props.product.description}</p>

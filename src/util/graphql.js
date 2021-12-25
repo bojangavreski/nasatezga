@@ -7,7 +7,7 @@ export const FETCH_PRODUCTS_QUERY = gql`
       title
       description
       createdAt
-      image
+      images
       username
       category
       creator
