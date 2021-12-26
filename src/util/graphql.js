@@ -9,6 +9,7 @@ export const FETCH_PRODUCTS_QUERY = gql`
       createdAt
       images
       username
+      producer
       category
       creator
       region

@@ -74,6 +74,18 @@ export function MobileNavLinks(props) {
           <Link href="/store">Продавница</Link>
           </NavItem>
           </LinkItem>
+
+          <LinkItem>
+          <NavItem className= "nav-item-n">
+            <Link href="/Paketi">Промотивни Пакети</Link>
+            </NavItem>
+          </LinkItem>
+          <LinkItem>
+          <NavItem className= "nav-item-n">
+            <Link href="/ZaNas">За Нас</Link>
+            </NavItem>
+          </LinkItem>
+
           <Marginer />
           <Accessibility />
         </LinksWrapper>

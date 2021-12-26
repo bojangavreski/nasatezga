@@ -70,7 +70,6 @@ const FarmerCard = ({farmer}) => {
       >
         <DialogTitle> <h2 className={classes.typography} style={{textAlign:"center", color:"#383838"}}> Приказната на: {farmer.nameAndSurname}</h2></DialogTitle>
         <DialogContent>
-          <h4 className={classes.typography} style={{textAlign:"center", color:"#383838"}}> Доколку сакате да ги погледнете производите од {farmer.nameAndSurname}, пребарајте ги со внес "{farmer.nameAndSurname}" во нашата <a href="/store" target="blank"> Продавница </a> </h4>
           <Image src={farmer.image}/>
           <DialogContentText id="alert-dialog-slide-description">
           <h3 className={classes.typographySmall} style={{textAlign:"center" , margin:"20px auto auto auto",color:"#383838", fontSize:"20px",}}>{farmer.description}</h3>

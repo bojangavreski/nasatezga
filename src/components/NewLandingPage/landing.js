@@ -70,7 +70,7 @@ function App() {
         </div>
         }
     {!isMobile?<h3 className={classes.typography} style={{textAlign:"center", margin:"330px 0 0 50px"}}> Прочитајте ги приказните на нашите жени, проверете го квалитетот и начинот <br/> 
-    на кој тие ги одгледуваат своите производи, стапете во контакт во секој момент.</h3>: null}
+    на кој тие ги одгледуваат своите производи, стапете во контакт со нив во секој момент.</h3>: null}
     </div>
     </a>
 
@@ -88,7 +88,7 @@ function App() {
      </div>
     }
     {!isMobile?<h3 className={classes.typography} style={{textAlign:"center", margin:"330px 0 0 40px"}}> Посетете ја нашата продавница, купувајте ги најдобрите <br/> производи одгледани со љубов. 
-    Производите чекаат на вас.<br/>  Со само неколку кликања, најлесно до сега ќе може да купите посакуван поризвод.
+    Производите чекаат на вас.<br/>  Со само неколку кликања, најлесно до сега ќе може да купите посакуван производ.
     </h3>: null}
     </div>
     </a>
@@ -105,8 +105,24 @@ function App() {
           <Image src={ToAbout}/> 
     </div>
      }
-    {!isMobile?<h3 className={classes.typography} style={{textAlign:"center", margin:"350px 0 0 50px"}}> Дознајте повеќе за нашата визија и мисија, кои сме ние, за што се залагаме <br/> 
-    и како им помагаме на земјодлеците со користење на нашата платформа.</h3> : null}
+    {!isMobile?<h3 className={classes.typography} style={{textAlign:"center", margin:"300px 0 0 50px"}}> Погледнете ја нашата визија и мисија, како и приказната за <br/> создавање на првиот   рурален женски е-пазар со кој што директно ги <br/>  поддржуваме нашите вредни жени  од руралните средини 
+    и како им помагаме <br/> на земјодлеците со користење на нашата платформа.</h3> : null}
+    </div>
+    </a>
+
+    <a href="/Paketi">
+    <div style={{display:"flex", marginTop:"30px", borderRadius:"170px"}}>
+    {!isMobile?<div style={{width:"550px",margin:"50px 0 0 100px" }}>
+    <h1 className={classes.typography} style={{marginTop:"40px"}}> Промотивни пакети </h1>
+    <Image src={'https://i.imgur.com/DZI93Vu.jpg'}/> 
+    </div>:
+      <div style={{width: "80%", justifyContent:"center", margin:"auto"}}>
+         <h1 className={classes.typography} style={{marginTop:"40px", textAlign:"center"}}> Промотивни пакети </h1>
+         <p className={classes.typography} style={{textAlign:"center"}}> Вкусете ги здравите и еколошки традиционални производи на нашите  вредни жени кои што ги содржи овој пакет  </p>
+          <Image src={'https://i.imgur.com/DZI93Vu.jpg'}/> 
+    </div>
+     }
+    {!isMobile?<h3 className={classes.typography} style={{textAlign:"center", margin:"350px 0 0 100px"}}>Вкусете ги здравите и еколошки традиционални производи на <br/>  нашите вредни жени кои што ги содржи овој пакет </h3> : null}
     </div>
     </a>
 

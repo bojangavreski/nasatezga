@@ -58,16 +58,25 @@ export function NavLinks(props) {
             <Link href="/biodiv">Вредните жени</Link>
             </NavItem>
           </LinkItem>
+
           <LinkItem>
           <NavItem className= "nav-item-n">
             <Link href="/ZaNas">За нас</Link>
             </NavItem>
           </LinkItem>
+          
+
         <LinkItem>
         <NavItem className= "nav-item-n">
           <Link href="/store">Продавница</Link>
           </NavItem>
         </LinkItem>
+
+        <LinkItem>
+            <NavItem className= "nav-item-n">
+            <Link href="/Paketi">Промотивни пакети</Link>
+            </NavItem>
+          </LinkItem>
         
       </LinksWrapper>
     </NavLinksContainer>

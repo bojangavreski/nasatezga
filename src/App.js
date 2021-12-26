@@ -15,7 +15,7 @@ import Forgot from './pages/ForgotPassword';
 import './App.css';
 import Subscription from './pages/Subscription';
 import ZaNas from './pages/ZaNas'
-
+import PaketiPage from './pages/PaketiPage'
 function App() {
 	return (
 		<>
@@ -26,6 +26,8 @@ function App() {
 					<Route exact path="/" component={Home} />
 					<Route exact path="/biodiv" component={Biodiv} />
 					<Route exact path="/ZaNas" component={ZaNas} />
+					<Route exact path="/Paketi" component={PaketiPage} />
+
 				</div>
 				<Container>
 					<Route exact path="/subscription" component={Subscription} />
