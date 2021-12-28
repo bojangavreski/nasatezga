@@ -81,6 +81,7 @@ module.exports = {
                     telephone: user.telephone,
                     images : productsList[i].images,
                     createdAt: new Date().toISOString(),
+                    producer: productsList[i].producer,
                     category : productsList[i].category,
                     region : productsList[i].region,
                     price : productsList[i].price,
