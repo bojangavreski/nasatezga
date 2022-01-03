@@ -8,7 +8,6 @@ import {
   CardContent,
   CardMedia,
   Button,
-  Grid,
   createMuiTheme,
   Dialog,
   DialogTitle,
@@ -18,13 +17,14 @@ import {
   TextField,
   ThemeProvider,
 } from "@material-ui/core";
-
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+import MediaQuery from 'react-responsive'
+import DetailsCardMobile from '../pages/DetailsCardMobile';
 import { makeStyles } from "@material-ui/styles";
 import { red, green } from "@material-ui/core/colors";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/react-hooks";
-import PersonIcon from "@material-ui/icons/Person";
 import DetailsCard from "./DetailsCard";
 const MONTHS = [
   "Јан",
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: ["Montserrat", "sans-serif"].join(","),
     margin: " 10px",
     height: "auto",
-    width: "300px",
+    width: "340px",
   },
   root: {
     maxWidth: 345,
@@ -112,14 +112,12 @@ return (
 function PostCard(props) {
   const [user, setUser] = useState({});
   const [open, setOpen] = useState(false);
-
   const uId = props.product.creator;
   const { loading, data } = useQuery(GET_USER_QUERY, {
     variables: {
       uId,
     },
   });
-
 
   useEffect(() => {
     if (data) {
@@ -161,10 +159,8 @@ function PostCard(props) {
               }
             ></h4>
           </div>
-          <div style={{ margin: "auto auto auto 180px" }}>
             <ThemeProvider theme={theme}>
-              <Grid >
-                <Grid >
+                  <div style={{display:"flex", alignContent:"space-around", margin:"auto"}}>
                   <Button
                     className="button-mui"
                     variant="contained"
@@ -174,8 +170,7 @@ function PostCard(props) {
                   > 
                     <p> Види повеќе </p>
                   </Button>
-                </Grid>
-                <Grid >
+              
                   <Button
                     className="button-mui"
                     variant="contained"
@@ -185,12 +180,11 @@ function PostCard(props) {
                   >
                     <p> Нарачај </p>
                   </Button>
-                </Grid>
-              </Grid>
+                  </div>
+              
               <DetailsCard setDialogOpen={open} setDialogClosed={closeProductDetailsDialog}/>
             </ThemeProvider>
           </div>
-        </div>
       </CardActions>
     </Card>
   );
