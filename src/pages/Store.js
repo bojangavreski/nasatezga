@@ -85,7 +85,7 @@ const Store = (props) => {
         product => {
       if(searchBoxContent === ''){
         return <PostCard key={product.id} product={product} trigger={trigger}/>
-      }else if(product.description.includes(searchBoxContent)){ 
+      }else if(product.producer.includes(searchBoxContent)){ 
         return <PostCard key={product.id} product={product} trigger={trigger}/>
       } 
       }) : <LinearProgress className="spinner"/>}
