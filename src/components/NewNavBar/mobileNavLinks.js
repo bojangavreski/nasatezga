@@ -80,9 +80,10 @@ export function MobileNavLinks(props) {
             <Link href="/Paketi">Промотивни Пакети</Link>
             </NavItem>
           </LinkItem>
+
           <LinkItem>
           <NavItem className= "nav-item-n">
-            <Link href="/ZaNas">За Нас</Link>
+            <Link href="/Videos">Промотивни видеа</Link>
             </NavItem>
           </LinkItem>
 

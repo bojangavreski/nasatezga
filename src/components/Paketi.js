@@ -39,8 +39,10 @@ const Paketi = (props) => {
 
     return (
         <div>
-            <AppBar className={classes.appBar} position="static">
-      </AppBar>
+           <div>
+            <h1 style={{textAlign:"center", margin:"30px auto 50px auto", fontFamily:"Montserrat"}}> Промотивни пакети од Наша Тезга </h1>
+        </div>
+           
       {!isMobile?<Box className={classes.hero} style={{width:"100%", display:"flex", justifyContent:"center"}} >
      <img src={"https://i.imgur.com/lGtUGlo.jpg"} width={"70%"} height={"90%"} alt=""/>
         </Box>: 
@@ -52,7 +54,7 @@ const Paketi = (props) => {
       <a href="#"> 
       <div style={{display:"flex",marginTop:"30px"}}>
     {!isMobile?<div style={{width:"500px",margin:"50px 0 0 100px" }}>
-    <h1 className={classes.typography} style={{marginTop:"-10px"}}> Промотивен пакет: 699ден.</h1>
+    <h1 className={classes.typography} style={{marginTop:"-10px", fontFamily:"Montserrat"}}> Промотивен пакет: 699ден.</h1>
      <Image src={"https://i.imgur.com/TUODO91.jpg"}/> 
      <Button
                     className="button-mui"
@@ -68,8 +70,8 @@ const Paketi = (props) => {
 
     //MOBILE :
       <div style={{width: "80%", justifyContent:"center", margin:"auto"}}>
-        <h1 className={classes.typography} style={{marginTop:"-10px", textAlign:"center"}}> Промотивен пакет: 699ден. </h1>
-        <p className={classes.typography}  style={{textAlign:"center"}}> Состав на пакетот:- ајвар;
+        <h1 className={classes.typography} style={{marginTop:"-10px", textAlign:"center", fontFamily:"Montserrat"}}> Промотивен пакет: 699ден. </h1>
+        <p className={classes.typography}  style={{textAlign:"center", fontFamily:"Montserrat"}}> Состав на пакетот:- ајвар;
             - руска салата;
             - лешници 100 гр.;
             - грав 200 гр.;
@@ -87,7 +89,7 @@ const Paketi = (props) => {
                   </Button>  
         </div>
         }
-    {!isMobile?<h3 className={classes.typography} style={{textAlign:"center", margin:"180px 0 0 110px"}}> Состав на пакетот: <br/> 
+    {!isMobile?<h3 className={classes.typography} style={{textAlign:"center", margin:"180px 0 0 110px", fontFamily:"Montserrat"}}> Состав на пакетот: <br/> 
  - ајвар;
  <br/>
 - руска салата;
@@ -108,7 +110,7 @@ const Paketi = (props) => {
     <a href="#"> 
       <div style={{display:"flex",marginTop:"30px"}}>
     {!isMobile?<div style={{width:"550px",margin:"50px 0 0 100px", height:"600px" }}>
-    <h1 className={classes.typography} style={{marginTop:"-10px"}}> Новогодишен промотивен пакет: 799ден.</h1>
+    <h1 className={classes.typography} style={{marginTop:"-10px", fontFamily:"Montserrat"}}> Новогодишен промотивен пакет: 799ден.</h1>
      <Image src={"https://i.imgur.com/lGtUGlo.jpg"}/>
      <Button
                     className="button-mui"
@@ -124,8 +126,8 @@ const Paketi = (props) => {
 
     //MOBILE :
       <div style={{width: "80%", justifyContent:"center", margin:"auto"}}>
-        <h1 className={classes.typography} style={{marginTop:"10px", textAlign:"center"}}> Новогодишен промотивен пакет: 799ден. </h1>
-        <p className={classes.typography}  style={{textAlign:"center"}}> Состав на пакетот:- ајвар;
+        <h1 className={classes.typography} style={{marginTop:"10px", textAlign:"center", fontFamily:"Montserrat"}}> Новогодишен промотивен пакет: 799ден. </h1>
+        <p className={classes.typography}  style={{textAlign:"center", fontFamily:"Montserrat"}}> Состав на пакетот:- ајвар;
             - руска салата;
             - лешници 100 гр.;
             - грав 200 гр.;
@@ -143,7 +145,7 @@ const Paketi = (props) => {
                   </Button>  
         </div>
         }
-    {!isMobile?<h3 className={classes.typography} style={{textAlign:"center", margin:"170px 0 0 50px"}}> Овие новогодишни и божиќни пакетчиња содржат:
+    {!isMobile?<h3 className={classes.typography} style={{textAlign:"center", margin:"170px 0 0 50px", fontFamily:"Montserrat"}}> Овие новогодишни и божиќни пакетчиња содржат:
     <br/>
 - чипс од лешници (100 гр.), сушени јапонски јаболка (100 гр.) и чипс од јаболка со цимет (100 гр.)
 <br/>

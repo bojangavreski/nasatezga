@@ -78,6 +78,11 @@ export function NavLinks(props) {
             </NavItem>
           </LinkItem>
         
+          <LinkItem>
+          <NavItem className= "nav-item-n">
+            <Link href="/Videos">Промотивни видеа</Link>
+            </NavItem>
+          </LinkItem>
       </LinksWrapper>
     </NavLinksContainer>
             <style jsx>{`

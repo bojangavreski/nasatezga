@@ -16,6 +16,7 @@ import './App.css';
 import Subscription from './pages/Subscription';
 import ZaNas from './pages/ZaNas'
 import PaketiPage from './pages/PaketiPage'
+import VideosPage from "./pages/VideosPage"
 function App() {
 	return (
 		<>
@@ -27,6 +28,7 @@ function App() {
 					<Route exact path="/biodiv" component={Biodiv} />
 					<Route exact path="/ZaNas" component={ZaNas} />
 					<Route exact path="/Paketi" component={PaketiPage} />
+					<Route exact path="/Videos" component={VideosPage} />
 
 				</div>
 				<Container>
