@@ -63,11 +63,7 @@ export function MobileNavLinks(props) {
             <Link href="/biodiv">Вредните Жени</Link>
             </NavItem>
           </LinkItem>
-          <LinkItem>
-          <NavItem className= "nav-item-n">
-            <Link href="/ZaNas">За Нас</Link>
-            </NavItem>
-          </LinkItem>
+      
 
         <LinkItem>
         <NavItem className= "nav-item-n">
@@ -87,18 +83,24 @@ export function MobileNavLinks(props) {
             </NavItem>
           </LinkItem>
 
+          <LinkItem>
+          <NavItem className= "nav-item-n">
+            <Link href="/ZaNas">За Нас</Link>
+            </NavItem>
+          </LinkItem>
+
           <Marginer />
           <Accessibility />
         </LinksWrapper>
       )}
     </NavLinksContainer>
                 <style jsx>{`
-                @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+               @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Montserrat&display=swap');
                 .nav-item-n {
                   font-size: 17px;
-                  font-family: 'Rubik', sans-serif;
+                  font-weight:bold;
+                  font-family: 'Montserrat';
                   text-decoration:none;
-                  color: darkgreen;  
                 }
                 `}</style>
                 </>

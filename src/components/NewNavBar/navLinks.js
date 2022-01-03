@@ -59,11 +59,7 @@ export function NavLinks(props) {
             </NavItem>
           </LinkItem>
 
-          <LinkItem>
-          <NavItem className= "nav-item-n">
-            <Link href="/ZaNas">За нас</Link>
-            </NavItem>
-          </LinkItem>
+
           
 
         <LinkItem>
@@ -83,13 +79,21 @@ export function NavLinks(props) {
             <Link href="/Videos">Промотивни видеа</Link>
             </NavItem>
           </LinkItem>
+
+          <LinkItem>
+          <NavItem className= "nav-item-n">
+            <Link href="/ZaNas" >За нас</Link>
+            </NavItem>
+          </LinkItem>
+          
       </LinksWrapper>
     </NavLinksContainer>
             <style jsx>{`
-            @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Montserrat&display=swap');
             .nav-item-n {
               font-size: 17px;
-              font-family: 'Rubik', sans-serif;
+              font-weight:bold;
+              font-family: 'Montserrat';
               text-decoration:none;
               
             }
