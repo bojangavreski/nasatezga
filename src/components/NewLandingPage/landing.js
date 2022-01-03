@@ -112,7 +112,7 @@ function App() {
 
     <a href="/Paketi">
     <div style={{display:"flex", marginTop:"30px", borderRadius:"170px"}}>
-    {!isMobile?<div style={{width:"550px",margin:"50px 0 0 100px" }}>
+    {!isMobile?<div style={{width:"450px",margin:"50px 0 0 100px" }}>
     <h1 className={classes.typography} style={{marginTop:"40px"}}> Промотивни пакети </h1>
     <Image src={'https://i.imgur.com/DZI93Vu.jpg'}/> 
     </div>:
@@ -126,13 +126,13 @@ function App() {
     </div>
     </a>
 
-     <div style={{maxWidth:"1000px"}}>
+     <div style={{}}>
       <Container style={{margin:"100px auto auto auto"}}>
         <Typography variant="h4" >
           Нашите поддржувачи
         </Typography>
 
-        <div style={!isMobile?{display:"flex", flexDirection:"row", margin:"auto"}: {display:"grid", gridTemplateColumns:"repeat(1,1fr)", justifyItems:"center", margin:"auto"}}>  
+        <div style={!isMobile?{display:"grid", gridTemplateColumns:"repeat(3,1fr)"} : {display:"grid", gridTemplateColumns:"repeat(1,1fr)", justifyItems:"center", margin:"auto"}}>  
  
            
               <a href="https://www.giz.de/en/worldwide/301.html" target= "blank">
