@@ -182,7 +182,7 @@ function PostCard(props) {
                   </Button>
                   </div>
               
-              <DetailsCard setDialogOpen={open} setDialogClosed={closeProductDetailsDialog}/>
+              <DetailsCard product={props.product} setDialogOpen={open} setDialogClosed={closeProductDetailsDialog}/>
             </ThemeProvider>
           </div>
       </CardActions>
