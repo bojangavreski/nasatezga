@@ -18,7 +18,6 @@ export default function DetailsCard(props) {
 
 	useEffect(
 		() => {
-			console.log(props);
 			setOpen(props.setDialogOpen);
 		},
 		[ props ]

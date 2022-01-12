@@ -13,6 +13,9 @@ import "../components/DetailsCard";
 import DetailsCard from '../components/DetailsCard';
 
 
+const isStringIncluded = (includes, included) => {
+  return includes.toLowerCase().includes(included.toLowerCase());
+} 
 const Store = (props) => {
    const [dialog,setDialog] =useState(false);
    const [region,setRegion] = useState(0);
@@ -48,7 +51,7 @@ const Store = (props) => {
     setFilterDialog(false);
   }
   useEffect(()=>{
-    if(props.match.params.searchTerm === ''){
+    if(!props.match.params.searchTerm){
     setSearchBoxContent('');
     }else{
       setSearchBoxContent(props.match.params.searchTerm);
@@ -85,7 +88,7 @@ const Store = (props) => {
         product => {
       if(searchBoxContent === ''){
         return <PostCard key={product.id} product={product} trigger={trigger}/>
-      }else if(product.producer.includes(searchBoxContent)){ 
+      }else if(isStringIncluded(product.producer,searchBoxContent) || isStringIncluded(product.title,searchBoxContent)){ 
         return <PostCard key={product.id} product={product} trigger={trigger}/>
       } 
       }) : <LinearProgress className="spinner"/>}
