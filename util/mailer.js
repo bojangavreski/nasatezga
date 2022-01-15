@@ -8,7 +8,7 @@ sendGridMail.setApiKey(SENDGRID_API_KEY);
 module.exports = function({nameAndSurname,address,telephone,description}){
     var mailOptions = {
         from: 'nashatezga.dev@gmail.com',
-        to: 'dimitar_tancheski@outlook.com',
+        to: 'rkoalicija@gmail.com',
         subject: `Нарачка од ${nameAndSurname}`,
         html: `<h2>Име и презиме: </h2>
               <h4>${nameAndSurname}</h4>
