@@ -56,6 +56,10 @@ const OrderProductDialog = props => {
   })
   function orderProductCallback(){
     orderProduct();
+    if (onSubmit){
+      alert("Успешно ги нарачавте своите производ. Притиснете ОК и може да продолжите со навигирање на нашата страна.")
+    setTimeout(() => {setOpen(false)}, 500);
+    }
   }
 
   const [open,setOpen] = useState(false);
